@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //Exercise: 1.1
+        let challenge = '30 Days Of JavaScript';
+        //Exercise: 1.2
+        console.log(challenge);
+        //Exercise: 1.3
+        console.log(challenge.length);
+        //Exercise: 1.4
+        console.log(challenge.toUpperCase());
+        //Exercise: 1.5
+        console.log(challenge.toLowerCase());
+        //Exercise: 1.6
+        console.log(challenge.substr(0, 2));
+        //Exercise: 1.7
+        console.log(challenge.substring(3));
+        //Exercise: 1.8
+        console.log(challenge.includes('Script'));
+        //Exercise: 1.9
+        console.log(challenge.split());
+        //Exercise: 1.10
+        console.log(challenge.split(' '));
+        //Exercise: 1.11
+        console.log('Facebook, Google, Microsoft, Apple, IBM, Oracle, Amazon'.split(','));
+        //Exercise: 1.12
+        console.log(challenge.replace('JavaScript', 'Python'));
+        //Exercise: 1.13
+        console.log(challenge.charAt(15));
+        //Exercise: 1.14
+        console.log(challenge.charCodeAt('J'));
+        //Exercise: 1.15
+        console.log(challenge.indexOf(challenge));
+        //Exercise: 1.16
+        console.log(challenge.lastIndexOf(challenge));
+        //Exercise: 1.17
+        console.log('You cannot end a sentence with because because because is a conjunction'.indexOf('because'));
+        //Exercise: 1.18
+        console.log('You cannot end a sentence with because because because is a conjunction'.lastIndexOf('because'));
+        //Exercise: 1.19
+        console.log('You cannot end a sentence with because because because is a conjunction'.search('because'));
+        //Exercise: 1.20
+        console.log(' 30 Days Of JavaScript '.trim(' '));
+        //Exercise: 1.21
+        console.log(challenge.startsWith('30'));
+        //Exercise: 1.22
+        console.log(challenge.endsWith('Script'));
+        //Exercise: 1.23
+        console.log(challenge.match('a'));
+        //Exercise: 1.24
+        console.log('30 Day of'.concat('JavaScript'));
+        //Exercise: 1.25
+        console.log(challenge.repeat(2));
+
+        //Exercise: 2.1
+        console.log(`The quote 'There is no exercise better for the heart than reaching down and lifting people up.' by John Holmes teaches us to help one another.`);
+        //Exercise: 2.2
+        console.log(`"Love is not patronizing and charity isn't about pity, it is about love. Charity and love are the same -- with charity you give love, so don't just give money but reach out your hand instead."`);
+        //Exercise: 2.3
+        if (!('10' === 10))
+            console.log(parseInt('10') === 10);
+        //Exercise: 2.4
+        if (!(parseFloat('9.8') === 10))
+            console.log(parseInt('9.8') + 1 === 10);
+        //Exercise: 2.5
+        console.log('jargon'.includes('on') && 'python'.includes('on'));
+        //Exercise: 2.6
+        console.log('I hope this course is not full of jargon'.includes('jargon'));
+        //Exercise: 2.7
+        let randomNum = Math.random();
+        let numRange = randomNum * 101;
+        let randomNumRoundToFloor = Math.floor(numRange);
+        console.log(randomNumRoundToFloor);
+        //Exercise: 2.8
+        numRange = randomNum * 51;
+        randomNumRoundToFloor = Math.floor(numRange) + 50;
+        console.log(randomNumRoundToFloor);
+        //Exercise: 2.9
+        numRange = randomNum * 256;
+        randomNumRoundToFloor = Math.floor(numRange);
+        console.log(randomNumRoundToFloor);
+        //Exercise: 2.10
+        let str = 'JavaScript';
+        numRange = randomNum * (str.length + 1);
+        randomNumRoundToFloor = Math.floor(numRange);
+        console.log(str.charAt(randomNumRoundToFloor));
+        //Exercise: 2.11
+        console.log('1 1 1 1 1\n2 1 2 4 8\n3 1 3 9 27\n4 1 4 16 64\n5 1 5 25 125');
+        //Exercise: 2.12
+        str = 'You cannot end a sentence with because because because is a conjunction'
+        console.log(str.substr(str.indexOf('because'), str.lastIndexOf('because') + 'because'.length - str.indexOf('because')));
+        //Exercise: 3.1
+        console.log('Love is the best thing in this world. Some found their love and some are still looking for their love.'.match(/love/g).length);
+        //Exercise: 3.2
+        console.log('You cannot end a sentence with because because because is a conjunction'.match(/because/g).length);
+        //Exercise: 3.3
+        const sentence = '%I $am@% a %tea@cher%, &and& I lo%#ve %te@a@ching%;. The@re $is no@th@ing; &as& mo@re rewarding as educa@ting &and& @emp%o@weri@ng peo@ple. ;I found tea@ching m%o@re interesting tha@n any ot#her %jo@bs. %Do@es thi%s mo@tiv#ate yo@u to be a tea@cher!? %Th#is 30#Days&OfJavaScript &is al@so $the $resu@lt of &love& of tea&ching';
+        const cleanSentence = sentence.replace(/[^\d\w\s]*/g, '', sentence);
+        const splitSentenceToWord = cleanSentence.split(' ');
+        var mostFrequentWord = -1;
+        var indexmostFrequentWord = [];
+        splitSentenceToWord.forEach((word, index) => {
+            let pattern = new RegExp(`\\b${word}\\b`, "g");
+            let wordCount = cleanSentence.match(pattern).length;
+            if (wordCount >= mostFrequentWord) {
+                mostFrequentWord = wordCount;
+                indexmostFrequentWord.push(index);
+                for(let i =0; i< indexmostFrequentWord.length-1;i++) {
+                    if(splitSentenceToWord[index]== splitSentenceToWord[indexmostFrequentWord[i]])
+                    indexmostFrequentWord.pop();
+                }
+            }
+        });
+        indexmostFrequentWord.forEach(element => {
+            console.log(splitSentenceToWord[element]);
+        });
+        //Exercise: 3.4
+        str =  'He earns 5000 euro from salary per month, 10000 euro annual bonus, 15000 euro online courses per month.';
+        salary = str.match(/\d{1,}/g,str);
+        annualSalary = parseInt(salary[0])*12 + parseInt(salary[1]) + parseInt(salary[2]) *12;
+        console.log(annualSalary);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
