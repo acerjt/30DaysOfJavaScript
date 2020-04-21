@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //Exercise 1.1
+        let firstName = 'Phan';
+        let lastName = 'Toan';
+        let country = 'VietNam';
+        let city = 'HoChiMinh';
+        let age = 22;
+        let isMarried = false;
+        let year = new Date().getFullYear();
+        console.log(firstName, typeof firstName);
+        console.log(lastName, typeof lastName);
+        console.log(country, typeof country);
+        console.log(city, typeof city);
+        console.log(age, typeof age);
+        console.log(isMarried, typeof isMarried);
+        console.log(year, typeof year);
+        //Exercise 1.2
+        console.log('10' === 10);
+        //Exercise 1.3
+        console.log(parseInt('9.8') == 10);
+        //Exercise 1.4
+        //Exercise 1.4.1
+        let truthyValue1 = 1;
+        let truthyValue2 = "true";
+        let truthyValue3 = true;
+        console.log(truthyValue1, truthyValue2, truthyValue3);
+        //Exercise 1.4.2
+        let falsyValue1 = 0;
+        let falsyValue2 = "false";
+        let falsyValue3 = false;
+        console.log(falsyValue1, falsyValue2, falsyValue3);
+        //Exercise 1.5
+        //Exercise 1.5.1
+        console.log(4 > 3);
+        //Exercise 1.5.2
+        console.log(4 >= 3);
+        //Exercise 1.5.3
+        console.log(4 < 3);
+        //Exercise 1.5.4
+        console.log(4 <= 3);
+        //Exercise 1.5.5
+        console.log(4 == 4);
+        //Exercise 1.5.6
+        console.log(4 === 4);
+        //Exercise 1.5.7
+        console.log(4 != 4);
+        //Exercise 1.5.8
+        console.log(4 !== 4);
+        //Exercise 1.5.9
+        console.log(4 != '4');
+        //Exercise 1.5.10
+        console.log(4 == '4');
+        //Exercise 1.5.11
+        console.log(4 === '4');
+        //Exercise 1.5.12
+        console.log('python'.length > 'jargon'.length);
+        //Exercise 1.6
+        //Exercise 1.6.1
+        console.log(4 > 3 && 10 < 12);
+        //Exercise 1.6.2
+        console.log(4 > 3 && 10 > 12);
+        //Exercise 1.6.3
+        console.log(4 > 3 || 10 < 12);
+        //Exercise 1.6.4
+        console.log(4 > 3 || 10 > 12);
+        //Exercise 1.6.5
+        console.log(!(4 > 3));
+        //Exercise 1.6.6
+        console.log(!(4 < 3));
+        //Exercise 1.6.7
+        console.log(!(false));
+        //Exercise 1.6.8
+        console.log(!(4 > 3 && 10 < 12));
+        //Exercise 1.6.9
+        console.log(!(4 > 3 && 10 > 12));
+        //Exercise 1.6.10
+        console.log(!(4 === '4'));
+        //Exercise 1.6.11
+        console.log(!('dragon'.includes('on') && 'python'.includes('on')));
+        //Exercise 1.7
+        //Exercise 1.7.1
+        console.log(new Date().getFullYear());
+        //Exercise 1.7.2
+        console.log(new Date().getMonth());
+        //Exercise 1.7.3
+        console.log(new Date().getDate());
+        //Exercise 1.7.4
+        console.log(new Date().getDay());
+        //Exercise 1.7.5
+        console.log(new Date().getHours());
+        //Exercise 1.7.6
+        console.log(new Date().getMinutes());
+        //Exercise 1.7.7
+        console.log(new Date().getTime());
+
+
+        // //Exercise 2.1  
+        let b = prompt('Enter base: ');
+        let h = prompt('Enter height: ');
+        let area = 0.5 * b * h;
+        alert(`The area of the triangle is ${area}`);
+        //Exercise 2.2  
+        let a = prompt('Enter side a: ');
+        b = prompt('Enter side b: ');
+        let c = prompt('Enter side c: ');
+        let perimeter = parseInt(a) + parseInt(b) + parseInt(c);
+        alert(`The perimeter of the triangle is ${perimeter}`);
+        //Exercise 2.3  
+        let length = prompt('Enter length: ');
+        let width = prompt('Enter width: ');
+        perimeter = 2 * (length * 1 + width * 1);
+        alert(`The perimeter of the rectangle is ${perimeter}`);
+        //Exercise 2.4
+        let radius = prompt('Enter radius: ');
+        area = Math.PI * radius * radius;
+        let circumference = 2 * Math.PI * radius;
+        alert(`The area of the circle is ${area} and the circumference of the circle is ${circumference}`);
+        //Exercise 2.5
+        let xIntercept = prompt('Enter x-intercept: ');
+        let yIntercept = 2 * xIntercept - 2;
+        alert(`The slope (y = 2x -2) when x = ${xIntercept} then y = ${yIntercept}`);
+        //Exercise 2.6
+        let m = (10 - 2) / (6 - 2);
+        alert(`The slope (m = y2-y1/x2-x1) between point(2,2) and point(6,10) is ${m}`);
+        //Exercise 2.7
+        console.log(m == yIntercept);
+        //Exercise 2.8
+        let x = prompt('Enter x:');
+        let y = x ** 2 + 6 * x + 9;
+        alert(`Value of y = x^2 + 6x + 9 when x = ${x} is ${y}`);
+        alert(`Value of y = x^2 + 6x + 9 when x = -3 is 0`);
+        //Exercise 2.9
+        let hour = prompt('Enter hours:');
+        let ratePerHour = prompt('Enter rate per hour: ');
+        let pay = hour * ratePerHour;
+        alert(`Your weekly earning is ${pay}`);
+        //Exercise 2.10
+        let myName = prompt('Enter your name: ');
+        if(myName.length > 7)
+            alert('Your name is long');
+        else
+            alert('Your name is short');
+        //Exercise 2.11
+        let firstName1 = 'Asabeneh';
+        let lastName1 = 'Yetayeh';
+        let longShort = (firstName1.length > lastName1.length) ? 'longer' : 'shorter'
+        alert(`Your first name, ${firstName1} is ${longShort} than your family name, ${lastName1}`);
+        //Exercise 2.12
+        myAge = 250;
+        let yourAge = 25;
+        let oldYoung = myAge > yourAge ? ['older', myAge - yourAge] : ['younger', yourAge - myAge];
+        alert(`I am ${oldYoung[1]} years ${oldYoung[0]} than you`);
+        //Exercise 2.13
+        let birthYear = prompt('Enter birth year: ');
+        let yearOld = new Date().getFullYear() - birthYear;
+        if(yearOld >= 18)
+            alert(`You are ${yearOld}. You are old enough to drive`);
+        else
+        {
+            let yearAllow = 18 - yearOld;
+            alert(`You are ${yearOld}. You will be allowed to drive after ${yearAllow} years. `);
+        }
+        //Exercise 2.14
+        let numberOfYears = prompt('Enter number of yours you live: ');
+        let secondLive = numberOfYears * 60 *60 * 24 * 365 * 100;
+        alert(secondLive);
+        //Exercise 2.15
+        let YYY = new Date().getFullYear();
+        let MM = new Date().getMonth() + 1;
+        let DD = new Date().getDate();
+        let HH = new Date().getHours();
+        let mm = new Date().getMinutes();
+        //Exercise 2.15.1
+        alert(YYY+'-'+MM+'-'+DD+' ' +HH+':'+mm);
+        //Exercise 2.15.2
+        alert(DD+'-'+MM+'-'+YYY+' ' +HH+':'+mm);
+        //Exercise 2.15.3
+        alert(DD+'/'+MM+'/'+YYY+' ' +HH+':'+mm);
+        //Exercise 3.1
+        if (MM.toString().length == 1) {
+            MM = '0' + MM.toString();
+        }
+        if (DD.toString().length == 1)
+            DD = '0' + DD.toString();
+        if (HH.toString().length == 1)
+            HH = '0' + HH;
+        if (mm.toString().length == 1)
+            mm = '0' + mm;
+        alert(YYY + '-' + MM + '-' + DD + ' ' + HH + ':' + mm);
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
