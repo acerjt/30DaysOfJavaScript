@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //Exercises1
+        //Exercises1.1
+        let age = prompt('Enter your age');
+        if (age >= 18)
+            console.log('You are old enough to drive');
+        else {
+            yearsToWait = 18 - age;
+            console.log(`You are left with ${yearsToWait} years to drive.`);
+        }
+        //Exercises1.2
+        let myAge = 22;
+        let yourAge = prompt('Enter your age');
+        if (myAge > yourAge) {
+            let differentAge = myAge - yourAge
+            console.log(`I am ${differentAge} years older than you.`);
+        }
+        else {
+            let differentAge = yourAge - myAge
+            console.log(`You are ${differentAge} years older than me.`);
+        }
+        //Exercises1.3
+        let a = 4
+        let b = 3
+        if (a > b)
+            console.log(`${a} is greater than ${b}`);
+        else
+            console.log(`${b} is greater than ${a}`);
+        console.log(a > b ? `${a} is greater than ${b}` : `${b} is greater than ${a}`);
+        //Exercises1.4
+        let number = prompt('Enter a number: ');
+        if (number % 2 == 0)
+            console.log(`${number} is a even number`);
+        else
+            console.log(`${number} is a odd number`);
+        //Exercises2
+        //Exercises2.1
+        let score = prompt('Enter score: ');
+        if (score >= 90 && score < 100)
+            console.log('A');
+        else if (score >= 70 && score < 89)
+            console.log('B');
+        else if (score >= 60 && score < 69)
+            console.log('C');
+        else if (score >= 50 && score < 59)
+            console.log('D');
+        else if (score >= 0 && score < 49)
+            console.log('F');
+        //Exercises2.2
+        let month = prompt('Enter month').toLowerCase();
+        switch (month) {
+            case 'september':
+            case 'october':
+            case 'november':
+                console.log('Autumn');
+                break;
+            case 'december':
+            case 'january':
+            case 'feburary':
+                console.log('Winter');
+                break;
+            case 'march':
+            case 'april':
+            case 'may':
+                console.log('Spring');
+                break;
+            case 'june':
+            case 'july':
+            case 'august':
+                console.log('Summer');
+                break;
+            default:
+                console.log(`${month} is not a month`);
+                break;
+        }
+        //Exercises2.3
+        let day = prompt('What is the day is today? ').toLowerCase();
+        switch (day) {
+            case 'monday':
+            case 'tuesday':
+            case 'wednesday':
+            case 'thursday':
+            case 'friday':
+                day = day[0].toUpperCase() + day.slice(1);
+                console.log(`${day} is a work day`);
+                break;
+            case 'saturday':
+            case 'sunday':
+                day = day[0].toUpperCase() + day.slice(1);
+                console.log(`${day} is a weekend day`);
+                break;
+            default:
+                console.log(`${day} is not a day`);
+                break;
+        }
+        //Exercises3
+        //Exercises3.1
+        month = prompt('Enter month').toLowerCase();
+        switch (month) {
+
+            case 'january':
+            case 'march':
+            case 'may':
+            case 'july':
+            case 'august':
+            case 'october':
+            case 'december':
+                month = month[0].toUpperCase() + month.slice(1);
+                console.log(`${month} has 31 days`);
+                break;
+            case 'feburary':
+                month = montsh[0].toUpperCase() + month.slice(1);
+                console.log(`${month} has 28 days`);
+                break;
+            case 'april':
+            case 'june':
+            case 'september':
+            case 'november':
+                month = month[0].toUpperCase() + month.slice(1);
+                console.log(`${month} has 30 days`);
+                break;
+            default:
+                console.log(`${month} is not a month`);
+                break;
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
