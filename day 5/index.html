@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const countries = [
+            'Albania',
+            'Bolivia',
+            'Canada',
+            'Denmark',
+            'Ethiopia',
+            'Finland',
+            'Germany',
+            'Hungary',
+            'Ireland',
+            'Japan',
+            'Kenya',
+        ]
+        const webTechs = [
+            'HTML',
+            'CSS',
+            'JavaScript',
+            'React',
+            'Redux',
+            'Node',
+            'MongoDB'
+        ]
+        //Exercises1
+        //Exercises1.1
+        const emptyArray = [];
+        console.log(emptyArray);
+        //Exercises1.2
+        const fiveNumberArray = [2, 26, 24, 12, 10];
+        console.log(fiveNumberArray);
+        //Exercises1.3
+        let fiveNumberArrayLength = fiveNumberArray.length;
+        console.log(fiveNumberArrayLength);
+        //Exercises1.4
+        let fiveNumberArrayFirstItem = fiveNumberArray[0];
+        let fiveNumberArrayMiddleItem = fiveNumberArray[parseInt(fiveNumberArray.length / 2)];
+        let fiveNumberArrayLastItem = fiveNumberArray[fiveNumberArray.length - 1];
+        console.log(fiveNumberArrayFirstItem, fiveNumberArrayMiddleItem, fiveNumberArrayLastItem);
+        //Exercises1.5
+        const mixedDataTypes = [[1, 2, 3], 22, { isSingle: false }, 'Dung', false, undefined];
+        console.log(mixedDataTypes.length);
+        //Exercises1.6
+        const itCompanies = [
+            'Facebook',
+            'Google',
+            'Microsoft',
+            'Apple',
+            'IBM',
+            'Oracle',
+            'Amazon'
+        ]
+        console.log(itCompanies);
+        //Exercises1.7
+        console.log(itCompanies);
+        //Exercises1.8
+        console.log(itCompanies.length);
+        //Exercises1.9
+        let firstITCompany = itCompanies[0];
+        let middleITCompany = itCompanies[parseInt(itCompanies.length / 2)];
+        let lastITCompany = itCompanies[itCompanies.length - 1];
+        console.log(firstITCompany, middleITCompany, lastITCompany);
+        //Exercises1.10
+        console.log(itCompanies.toString());
+        //Exercises1.11
+        console.log(itCompanies.toString().toUpperCase());
+        //Exercises1.12
+        console.log(itCompanies.toString() + ' are big IT companies');
+        //Exercises1.13
+        let myCompany = 'Emihikusuni';
+        let facebookCompany = 'Facebook';
+
+        if (itCompanies.includes(myCompany))
+            console.log(myCompany);
+        else
+            console.log(myCompany + ' not found');
+
+        if (itCompanies.includes(facebookCompany))
+            console.log(facebookCompany);
+        else
+            console.log(facebookCompany + ' not found');
+        //Exercises1.14
+        itCompanies.forEach((element) => {
+            let findO = element.match(/o/gi);
+            if (findO != null && findO.length > 1) {
+                console.log(element);
+            }
+
+        })
+        //Exercises1.15
+        console.log(itCompanies.sort());
+        //Exercises1.16
+        console.log(itCompanies.reverse());
+        //Exercises1.17
+        console.log(fiveNumberArray.slice(0, 3));
+        //Exercises1.18
+        console.log(mixedDataTypes.slice(mixedDataTypes.length - 3, mixedDataTypes.length));
+        //Exercises1.19
+        console.log(itCompanies.slice(itCompanies.length / 2, itCompanies.length / 2 + 1));
+        //Exercises1.20
+        itCompanies.splice(0, 1);
+        console.log(itCompanies);
+        //Exercises1.21
+        itCompanies.splice(itCompanies.length / 2, 1);
+        console.log(itCompanies);
+        //Exercises1.22
+        itCompanies.splice(itCompanies.length - 1, 1);
+        console.log(itCompanies);
+        //Exercises1.23
+        itCompanies.splice(0);
+        console.log(itCompanies);
+        //Exercises2
+        //Exercises2.2
+        let text = ' I love teaching and empowering people. I teach HTML, CSS, JS, React, Python.';
+        words = text.split(' ');
+        console.log(words);
+        console.log(words.length);
+        //Exercises2.3
+        const shoppingCart = ['Milk', 'Coffee', 'Tea', 'Honey'];
+        console.log(shoppingCart);
+        shoppingCart.unshift('Meat');
+        console.log(shoppingCart);
+        shoppingCart.push('Sugar');
+        console.log(shoppingCart);
+        shoppingCart.splice(shoppingCart.length - 2, 1);
+        console.log(shoppingCart);
+        let teaIndex = shoppingCart.indexOf('Tea');
+        shoppingCart[teaIndex] = 'Green tea';
+        console.log(shoppingCart);
+        //Exercises2.4
+        let ethiopia = 'Ethiopia';
+
+        if (countries.includes(ethiopia))
+            console.log(ethiopia.toUpperCase());
+        else
+            countries.push(ethiopia);
+        //Exercises2.5
+        let sass = 'Sass';
+        if (countries.includes(ethiopia))
+            console.log('Sass is a CSS preprocess');
+        else {
+            webTechs.push(ethiopia);
+            console.log(webTechs);
+        }
+        //Exercises2.6
+        const frontEnd = ['HTML', 'CSS', 'JS', 'React', 'Redux'];
+        const backEnd = ['Node', 'Express', 'MongoDB'];
+
+        const fullStack = frontEnd.concat(backEnd);
+        console.log(fullStack);
+        //Exercises3
+        //Exercises3.1
+        const ages = [19, 22, 19, 24, 20, 25, 26, 24, 25, 24];
+        console.log(ages);
+        console.log(ages.sort());
+        let minAge = ages[0];
+        let maxAge = ages[ages.length - 1];
+        console.log(`Max age: ${maxAge}`);
+        console.log(`Min age: ${minAge}`);
+        let medianAges = [];
+        let medianAge = ages[parseInt(ages.length / 2)];
+        medianAges.push(medianAge);
+        if (ages.length % 2 == 0) {
+            let medianAgeIndex = parseInt(ages.length / 2) - 1;
+            if (ages[medianAgeIndex] != medianAges[0])
+                medianAges.push(ages[medianAgeIndex]);
+        }
+        console.log(medianAges);
+        let ageRange = maxAge - minAge;
+        console.log('Age range ' + ageRange);
+        let minAvg = Math.abs(minAge - medianAges[0]);
+        let maxAvg = Math.abs(maxAge - medianAges[0]);
+        if (minAvg > maxAvg)
+            console.log('minAvg greater than maxAvg')
+        else if (minAvg < maxAvg)
+            console.log('minAvg less than maxAvg')
+        else
+            console.log('minAvg equal maxAvg');
+
+        console.log(countries.slice(0, 10));
+
+        //Exercises3.2
+        console.log(countries[countries.length / 2]);
+        //Exercises3.3
+        if(countries.length % 2 == 0) {
+            let firstHalfCountries = countries.slice(0, countries.length / 2);
+            let secondHalfCountries = countries.slice(countries.length / 2, countries.length);
+            console.log(firstHalfCountries, secondHalfCountries);
+        }
+        else {
+            let firstHalfCountries = countries.slice(0, countries.length / 2 + 1);
+            let secondHalfCountries = countries.slice(countries.length / 2 + 1, countries.length);
+            console.log(firstHalfCountries, secondHalfCountries);    
+        }
+        
+
+
+
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

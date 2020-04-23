@@ -1,4 +1,4 @@
-# Exercises
+# 💻 Day 4: Exercises
 ## Exercises: Level 1
 1. Get user input prompt("Enter your age: "). If user is 18 or older, give feedback: You are old enough to drive but if not 18 give feedback to wait for the years he supposed to wait for.
 ```sh
