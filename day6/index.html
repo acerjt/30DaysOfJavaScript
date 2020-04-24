@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //Exercises1
+        //Exercises1.1
+        for (let i = 0; i < 11; i++) {
+            console.log(i);
+        }
+        let i = 0;
+        while (i < 11) {
+            console.log(i++);
+        }
+        i = 0;
+        do {
+            console.log(i++);
+        } while (i < 11)
+        //Exercises1.2
+        for (let i = 10; i > -1; i--) {
+            console.log(i);
+        }
+        i = 10;
+        while (i > -1) {
+            console.log(i--);
+        }
+        i = 10;
+        do {
+            console.log(i--);
+        } while (i > 0)
+        //Exercises1.3
+        let n = Math.random() % 100;
+        for (let i = 0; i < n; i++) {
+            console.log(i);
+        }
+        //Exercises1.4
+        let str = '';
+        for (let i = 1; i < 6; i++) {
+            str += '#'.repeat(i) + '\n';
+        }
+        console.log(str);
+        //Exercises1.5
+        for (let i = 0; i < 11; i++) {
+            console.log(`${i} x ${i} = ${i * i}`);
+        }
+        //Exercises1.6
+        str = 'i1\ti^2\ti^3\n';
+        for (let i = 0; i < 11; i++) {
+            str += `${i}\t${i * i}\t${i * i * i}\n`;
+        }
+        console.log(str);
+        //Exercises1.7
+        for (let i = 0; i < 101; i += 2) {
+            console.log(i);
+        }
+        //Exercises1.8
+        for (let i = 1; i < 101; i += 2) {
+            console.log(i);
+        }
+        //Exercises1.9
+        let isPrimeNumber = (num => {
+            if (num < 2)
+                return false;
+            if (num % 2 == 0)
+                return false;
+            for (let i = 3; i <= Math.sqrt(num); i++) {
+                if (num % i == 0)
+                    return false;
+            }
+
+            return true;
+        });
+        for (let i = 1; i < 101; i += 2) {
+            if (isPrimeNumber(i))
+                console.log(i);
+        }
+        //Exercises1.10
+        let sum = 0;
+        for (let i = 1; i < 101; i++) {
+            sum += i;
+        }
+        console.log(sum);
+        //Exercises1.11
+        let evenSum = 0;
+        for (let i = 0; i < 101; i += 2) {
+            if (i % 2 == 0)
+                evenSum += i;
+        }
+        console.log(`The sum of all evens is ${evenSum}. And the sum of all odds is ${sum - evenSum}.`);
+        //Exercises1.12
+        const evenOddArray = [evenSum, sum - evenSum];
+        console.log(evenOddArray);
+        //Exercises1.13
+        const fiveNumberArray = [];
+        for (let i = 0; i < 5; i++) {
+            let randomNum = parseInt(Math.random() * 10);
+            fiveNumberArray.push(randomNum);
+        }
+        console.log(fiveNumberArray);
+        //Exercises1.14
+        const fiveDistinceNumberArray = [];
+        for (let i = 0; i < 5; i++) {
+            let randomNum = parseInt(Math.random() * 10);
+            while (fiveDistinceNumberArray.includes(randomNum)) {
+                randomNum = parseInt(Math.random() * 10);
+            }
+            fiveDistinceNumberArray.push(randomNum);
+        }
+        console.log(fiveDistinceNumberArray);
+        //Exercises1.15
+        str = '';
+        let characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+        for (let i = 0; i < 6; i++) {
+            str += characters.charAt(Math.floor(Math.random() * characters.length));
+        }
+        console.log(str);
+        //Exercises2
+        //Exercises2.1
+        str = '';
+        n = Math.random() * 100;
+        for (let i = 0; i < n; i++) {
+            str += characters.charAt(Math.floor(Math.random() * characters.length));
+        }
+        console.log(str);
+        //Exercises2.2
+        str = '';
+        let hexaCharacter = '0123456789abcdef';
+        for (let i = 0; i < 6; i++) {
+            str += hexaCharacter.charAt(Math.floor(Math.random() * hexaCharacter.length));
+        }
+        console.log(str);
+        //Exercises2.3
+        let r, g, b;
+        for (let i = 0; i < 6; i++) {
+            r = Math.floor(Math.random() * 257);
+            g = Math.floor(Math.random() * 257);
+            b = Math.floor(Math.random() * 257);
+        }
+        console.log(`rgb(${r}, ${g}, ${b})`);
+        //Exercises2.4
+        const countries = [
+            'Albania',
+            'Bolivia',
+            'Canada',
+            'Denmark',
+            'Ethiopia',
+            'Finland',
+            'Germany',
+            'Hungary',
+            'Ireland',
+            'Japan',
+            'Kenya'
+        ]
+        console.log(countries.toString().toUpperCase().split(','));
+        //Exercises2.5
+        let countriesLength = [];
+        for (const countrie of countries) {
+            countriesLength.push(countrie.length);
+        }
+        console.log(countriesLength);
+        //Exercises2.6
+        const a = [
+            'ALB',
+            'BOL',
+            'CAN',
+            'DEN',
+            'ETH',
+            'FIN',
+            'GER',
+            'HUN',
+            'IRE',
+            'JAP',
+            'KEN',];
+        let c = [];
+        for (let i = 0; i < a.length; i++) {
+            let d = [];
+            d.push(countries[i]);
+            d.push(countriesLength[i]);
+            d.push(a[i]);
+            c.push(d);
+        }
+        console.log(c);
+        //Exercises2.7
+        str = '';
+        let str2 = '';
+        for (let i = 0; i < a.length; i++) {
+            if (c[i][0].includes('land')) {
+                str += c[i][0] + ' ';
+                continue;
+            }
+            str2 += c[i][0] + ' ';
+        }
+        let landArr = str.split(' ');
+        landArr = landArr.slice(0, landArr.length -1);
+        let notLandArr = str2.split(' ');
+        notLandArr = notLandArr.slice(0, notLandArr.length -1);
+        console.log(landArr);
+        console.log(notLandArr);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
