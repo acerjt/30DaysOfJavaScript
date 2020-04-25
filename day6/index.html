@@ -194,12 +194,356 @@
             str2 += c[i][0] + ' ';
         }
         let landArr = str.split(' ');
-        landArr = landArr.slice(0, landArr.length -1);
+        landArr = landArr.slice(0, landArr.length - 1);
         let notLandArr = str2.split(' ');
-        notLandArr = notLandArr.slice(0, notLandArr.length -1);
+        notLandArr = notLandArr.slice(0, notLandArr.length - 1);
         console.log(landArr);
         console.log(notLandArr);
-
+        //Exercises2.8
+        let countriesEndWithIaArray = []
+        for (let countrie of countries) {
+            if (countrie.endsWith('ia'))
+                countriesEndWithIaArray.push(countrie);
+        }
+        if (countriesEndWithIaArray.length == 0)
+            console.log('These are countries ends without ia');
+        else
+            console.log(countriesEndWithIaArray);
+        //Exercises2.9
+        let iaCountrieMaxLength = -1;
+        let iaCountrieMaxLengthIndex = -1;
+        for (const [index, value] of countriesEndWithIaArray.entries()) {
+            if (value.length > iaCountrieMaxLength) {
+                iaCountrieMaxLength = value.length;
+                iaCountrieMaxLengthIndex = index;
+            }
+        }
+        console.log(countriesEndWithIaArray[iaCountrieMaxLengthIndex]);
+        //Exercises2.10
+        let fiveCharacterCountries = [];
+        for (const countrie of countries) {
+            if (countrie.length == 5)
+                fiveCharacterCountries.push(countrie);
+        }
+        console.log(fiveCharacterCountries);
+        //Exercises2.11
+        const webTechs = [
+            'HTML',
+            'CSS',
+            'JavaScript',
+            'React',
+            'Redux',
+            'Node',
+            'MongoDB'
+        ]
+        let longestWord = '';
+        let webTechMaxLength = -1;
+        let webTechMaxLengthIndex = -1;
+        for (const [index, value] of webTechs.entries()) {
+            if (value.length >= webTechMaxLength) {
+                webTechMaxLength = value.length;
+                webTechMaxLengthIndex = index;
+            }
+        }
+        console.log(webTechs[webTechMaxLengthIndex]);
+        //Exercises2.12
+        let webTechWithLengthArray = [];
+        for (const [index, value] of webTechs.entries()) {
+            webTechWithLengthArray.push([value, value.length]);
+        }
+        console.log(webTechWithLengthArray);
+        //Exercises2.13
+        let mernStack = ['MongoDB', 'Express', 'React', 'Node'];
+        let mern = '';
+        for (element of mernStack) {
+            mern += element.charAt(0);
+        }
+        console.log(mern);
+        //Exercises2.14
+        const webDevArray = ["HTML", "CSS", "JS", "React", "Redux", "Node", "Express", "MongoDB"]
+        for (element of webDevArray) {
+            console.log(element);
+        }
+        //Exercises2.15
+        const fruits = ['banana', 'orange', 'mango', 'lemon']
+        for (let i = 0; i < fruits.length / 2; i++) {
+            let temp = fruits[i];
+            fruits[i] = fruits[fruits.length - i - 1];
+            fruits[fruits.length - i - 1] = temp;
+        }
+        console.log(fruits);
+        //Exercises2.16
+        const fullStack = [
+            ['HTML', 'CSS', 'JS', 'React'],
+            ['Node', 'Express', 'MongoDB']
+        ]
+        for (element of fullStack)
+            for (value of element)
+                console.log(value);
+        //Exercises3
+        //Exercises3.1
+        const copyCountries = [];
+        for (countrie of countries) {
+            copyCountries.push(countrie);
+        }
+        console.log(copyCountries);
+        //Exercises3.2
+        const sortedCountries = [];
+        for (countrie of countries) {
+            sortedCountries.push(countrie);
+        }
+        sortedCountries.sort();
+        console.log(copyCountries);
+        //Exercises3.3
+        console.log(webTechs.sort());
+        console.log(mernStack.sort());
+        //Exercises3.4
+        let landCountries = [];
+        for (const countrie of countries) {
+            if (countrie.includes('land'))
+                landCountries.push(countrie);
+        }
+        console.log(landCountries);
+        //Exercises3.5
+        let highestNumCharCountrie = '';
+        let maxLengthCountrie = -1;
+        let maxLengthCountrieIndex = -1;
+        for (const [index, value] of countries.entries()) {
+            if (value.length > maxLengthCountrie) {
+                maxLengthCountrie = value.length;
+                maxLengthCountrieIndex = index;
+            }
+        }
+        highestNumCharCountrie += countries[maxLengthCountrieIndex];
+        console.log(highestNumCharCountrie);
+        //Exercises3.6
+        landCountries = [];
+        for (const countrie of countries) {
+            if (countrie.includes('land'))
+                landCountries.push(countrie);
+        }
+        console.log(landCountries);
+        //Exercises3.7
+        const countries1 = [
+            'Afghanistan',
+            'Albania',
+            'Algeria',
+            'Andorra',
+            'Angola',
+            'Antigua and Barbuda',
+            'Argentina',
+            'Armenia',
+            'Australia',
+            'Austria',
+            'Azerbaijan',
+            'Bahamas',
+            'Bahrain',
+            'Bangladesh',
+            'Barbados',
+            'Belarus',
+            'Belgium',
+            'Belize',
+            'Benin',
+            'Bhutan',
+            'Bolivia',
+            'Bosnia and Herzegovina',
+            'Botswana',
+            'Brazil',
+            'Brunei',
+            'Bulgaria',
+            'Burkina Faso',
+            'Burundi',
+            'Cambodia',
+            'Cameroon',
+            'Canada',
+            'Cape Verde',
+            'Central African Republic',
+            'Chad',
+            'Chile',
+            'China',
+            'Colombi',
+            'Comoros',
+            'Congo (Brazzaville)',
+            'Congo',
+            'Costa Rica',
+            "Cote d'Ivoire",
+            'Croatia',
+            'Cuba',
+            'Cyprus',
+            'Czech Republic',
+            'Denmark',
+            'Djibouti',
+            'Dominica',
+            'Dominican Republic',
+            'East Timor (Timor Timur)',
+            'Ecuador',
+            'Egypt',
+            'El Salvador',
+            'Equatorial Guinea',
+            'Eritrea',
+            'Estonia',
+            'Ethiopia',
+            'Fiji',
+            'Finland',
+            'France',
+            'Gabon',
+            'Gambia, The',
+            'Georgia',
+            'Germany',
+            'Ghana',
+            'Greece',
+            'Grenada',
+            'Guatemala',
+            'Guinea',
+            'Guinea-Bissau',
+            'Guyana',
+            'Haiti',
+            'Honduras',
+            'Hungary',
+            'Iceland',
+            'India',
+            'Indonesia',
+            'Iran',
+            'Iraq',
+            'Ireland',
+            'Israel',
+            'Italy',
+            'Jamaica',
+            'Japan',
+            'Jordan',
+            'Kazakhstan',
+            'Kenya',
+            'Kiribati',
+            'Korea, North',
+            'Korea, South',
+            'Kuwait',
+            'Kyrgyzstan',
+            'Laos',
+            'Latvia',
+            'Lebanon',
+            'Lesotho',
+            'Liberia',
+            'Libya',
+            'Liechtenstein',
+            'Lithuania',
+            'Luxembourg',
+            'Macedonia',
+            'Madagascar',
+            'Malawi',
+            'Malaysia',
+            'Maldives',
+            'Mali',
+            'Malta',
+            'Marshall Islands',
+            'Mauritania',
+            'Mauritius',
+            'Mexico',
+            'Micronesia',
+            'Moldova',
+            'Monaco',
+            'Mongolia',
+            'Morocco',
+            'Mozambique',
+            'Myanmar',
+            'Namibia',
+            'Nauru',
+            'Nepal',
+            'Netherlands',
+            'New Zealand',
+            'Nicaragua',
+            'Niger',
+            'Nigeria',
+            'Norway',
+            'Oman',
+            'Pakistan',
+            'Palau',
+            'Panama',
+            'Papua New Guinea',
+            'Paraguay',
+            'Peru',
+            'Philippines',
+            'Poland',
+            'Portugal',
+            'Qatar',
+            'Romania',
+            'Russia',
+            'Rwanda',
+            'Saint Kitts and Nevis',
+            'Saint Lucia',
+            'Saint Vincent',
+            'Samoa',
+            'San Marino',
+            'Sao Tome and Principe',
+            'Saudi Arabia',
+            'Senegal',
+            'Serbia and Montenegro',
+            'Seychelles',
+            'Sierra Leone',
+            'Singapore',
+            'Slovakia',
+            'Slovenia',
+            'Solomon Islands',
+            'Somalia',
+            'South Africa',
+            'Spain',
+            'Sri Lanka',
+            'Sudan',
+            'Suriname',
+            'Swaziland',
+            'Sweden',
+            'Switzerland',
+            'Syria',
+            'Taiwan',
+            'Tajikistan',
+            'Tanzania',
+            'Thailand',
+            'Togo',
+            'Tonga',
+            'Trinidad and Tobago',
+            'Tunisia',
+            'Turkey',
+            'Turkmenistan',
+            'Tuvalu',
+            'Uganda',
+            'Ukraine',
+            'United Arab Emirates',
+            'United Kingdom',
+            'United States',
+            'Uruguay',
+            'Uzbekistan',
+            'Vanuatu',
+            'Vatican City',
+            'Venezuela',
+            'Vietnam',
+            'Yemen',
+            'Zambia',
+            'Zimbabwe'
+        ];
+        let fourCharacterCountries = [];
+        for (const countrie of countries1) {
+            if (countrie.length == 4)
+                fourCharacterCountries.push(countrie);
+        }
+        console.log(fourCharacterCountries);
+        //Exercises3.8
+        let twoWordCountrieString = '';
+        let twoWordCountrie = [];
+        for (const countrie of countries1) {
+            if (countrie.split(' ').length >= 2)
+                twoWordCountrie.push(countrie);
+        }
+        console.log(twoWordCountrie);
+        //Exercises3.9
+        String.prototype.capitalize = function (allWords) {
+            return (allWords) ? // if all words
+                this.split(' ').map(word => word.capitalize()).join(' ') : //break down phrase to words then  recursive calls until capitalizing all words
+                this.charAt(0).toUpperCase() + this.slice(1); // if allWords is undefined , capitalize only the first word , mean the first char of the whole string
+        }
+        let reverseCountrieArray = countries1.reverse();
+        for(let i = 0; i <  reverseCountrieArray.length; i ++) {
+             reverseCountrieArray[i] = reverseCountrieArray[i].capitalize(true);
+        }
+        console.log(reverseCountrieArray);
     </script>
 </head>
 

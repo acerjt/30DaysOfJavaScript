@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //Ecercises1
+        //Ecercises1.1
+        const fullName = () => console.log(`Toan Phan`);
+        fullName();
+        //Ecercises1.2
+        const fullName1 = (firstName, lastName) => `${firstName} ${lastName}`;
+        console.log(fullName1('Toan', 'Phan'));
+        //Ecercises1.3
+        const addNumbers = (num1, num2) => num1 + num2;
+        console.log(addNumbers(26, 2));
+        //Ecercises1.4
+        const areaOfRectangle = (length, width) => length * width;
+        console.log(areaOfRectangle(5, 2));
+        //Ecercises1.5
+        const perimeterOfRectangle = (length, width) => 2 * (length + width);
+        console.log(perimeterOfRectangle(5, 2));
+        //Ecercises1.6
+        const volumeOfRectangle = (length, width, height) => length * width * height;
+        console.log(volumeOfRectangle(2, 5, 3));
+        //Ecercises1.7
+        const areaOfCircle = r => Math.PI * r * r;
+        console.log(areaOfCircle(10));
+        //Ecercises1.8
+        const circumOfCircle = r => 2 * Math.PI * r;
+        console.log(circumOfCircle(10));
+        //Ecercises1.9
+        const density = (mass, volume) => mass / volume;
+        console.log(density(5, 10));
+        //Ecercises1.10
+        const speed = (distance, time) => distance / time;
+        console.log(speed(60, 60));
+        //Ecercises1.11
+        const weight = (mass, gravity = 9.8) => mass * gravity;
+        console.log(weight(3, 6));
+        //Ecercises1.12
+        const convertCelciusToFahrenheit = oC => (oC * 9 / 5) + 32;
+        console.log(convertCelciusToFahrenheit(100));
+        //Ecercises1.13
+        const bmi = (weight, height) => weight / height ** 2;
+        const result = bmi(46, 1.6);
+        if (result < 18.5)
+            console.log('Underweight');
+        else if (result >= 18.5 && result <= 24.9)
+            console.log('Normal');
+        else if (result >= 25 && result < 29.9)
+            console.log('Overweight')
+        else if (result >= 30)
+            console.log('Obese');
+        //Ecercises1.14
+        const checkSeason = month => {
+            if ([1, 2, 3].includes(month))
+                return 'Spring';
+            else if ([4, 5, 6].includes(month))
+                return 'Summer';
+            else if ([7, 8, 9].includes(month))
+                return 'Autumn';
+            else if ([10, 11, 12].includes(month))
+                return 'Winter';
+        }
+        console.log(checkSeason(11));
+        //Ecercises1.15
+        const findMax = (a, b, c) => (a > b && a > c) ? a : (b > a && b > c) ? b : c;
+        console.log(findMax(0,-10,2));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
