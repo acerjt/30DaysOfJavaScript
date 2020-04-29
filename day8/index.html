@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="countries.js"></script>
+    <script>
+        //Exercises1
+        //Exercises1.1
+        let dog = {};
+        console.log(dog);
+        //Exercises1.2
+        console.log(dog);
+        //Exercises1.3
+        dog = {
+            legs: 4,
+            color: 'yellow',
+            age: 2,
+            bark() {
+                return 'woof woof';
+            }
+        }
+        console.log(dog);
+        //Exercises1.4
+        console.log(dog.legs);
+        console.log(dog.color);
+        console.log(dog.age);
+        console.log(dog.bark());
+        //Exercises1.5
+        dog['breed'] = 'Canis lupus dingo';
+        dog['getDogInfo'] = () => {
+            console.log(dog.legs);
+            console.log(dog.color);
+            console.log(dog.age);
+            console.log(dog.breed);
+            console.log(dog.bark());
+        }
+        console.log(dog.breed);
+        dog.getDogInfo();
+        //Exercises2
+        //Exercises2.1
+        const users = {
+            Alex: {
+                email: 'alex@alex.com',
+                skills: ['HTML', 'CSS', 'JavaScript'],
+                age: 20,
+                isLoggedIn: false,
+                points: 30
+            },
+            Asab: {
+                email: 'asab@asab.com',
+                skills: ['HTML', 'CSS', 'JavaScript', 'Redux', 'MongoDB', 'Express', 'React', 'Node'],
+                age: 25,
+                isLoggedIn: false,
+                points: 50
+            },
+            Brook: {
+                email: 'daniel@daniel.com',
+                skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Redux'],
+                age: 30,
+                isLoggedIn: true,
+                points: 50
+            },
+            Daniel: {
+                email: 'daniel@alex.com',
+                skills: ['HTML', 'CSS', 'JavaScript', 'Python'],
+                age: 20,
+                isLoggedIn: false,
+                points: 40
+            },
+            John: {
+                email: 'john@john.com',
+                skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Redux', 'Node.js'],
+                age: 20,
+                isLoggedIn: true,
+                points: 50
+            },
+            Thomas: {
+                email: 'thomas@thomas.com',
+                skills: ['HTML', 'CSS', 'JavaScript', 'React'],
+                age: 20,
+                isLoggedIn: false,
+                points: 40
+            },
+            Paul: {
+                email: 'paul@paul.com',
+                skills: ['HTML', 'CSS', 'JavaScript', 'MongoDB', 'Express', 'React', 'Node'],
+                age: 20,
+                isLoggedIn: false,
+                points: 40
+            }
+        }
+        const findPersonHasManySkill = users => {
+            let skill = -1;
+            let person = {};
+            for (const user in users) {
+                if (users[user]['skills'].length >= skill) {
+                    skill = users[user]['skills'].length;
+                    person = user;
+                }
+            }
+            return person;
+        }
+        const personHasManySkill = findPersonHasManySkill(users);
+        console.log(personHasManySkill);
+        //Exercises2.2
+        const userHavingGreaterThanEqualTo50Points = users => {
+            let person = [];
+            for (const user in users) {
+                if (users[user]['points'] >= 50) {
+                    person.push(user);
+                }
+            }
+            return person;
+        }
+        console.log(userHavingGreaterThanEqualTo50Points(users));
+        //Exercises2.3
+        const findMernStackDeveloper = users => {
+            let person = [];
+            for (const user in users) {
+                if (
+                    users[user]['skills'].includes('MongoDB')
+                    && users[user]['skills'].includes('Express')
+                    && users[user]['skills'].includes('React')
+                    && users[user]['skills'].includes('Node')
+                ) {
+                    person.push(user);
+                }
+            }
+            return person;
+        }
+        console.log(findMernStackDeveloper(users));
+        //Exercises2.4
+        const users1 = Object.assign({ 'Toan Phan': {} }, users);
+        console.log(users1);
+        console.log(users);
+        //Exercises2.5
+        const userKey = Object.keys(users);
+        console.log(userKey);
+        //Exercises2.6
+        const userValue = Object.values(users);
+        console.log(userValue);
+        //Exercises2.7
+        for (const countrie in countries) {
+            console.log(countries[countrie]['name']);
+            console.log(countries[countrie]['capital']);
+            console.log(countries[countrie]['population']);
+            console.log(countries[countrie]['languages']);
+
+        }
+        //Exercises3
+        //Exercises3.1
+        let personAccount = {
+            firstName: '',
+            lastName: '',
+            incomes: {
+                incomes: [],
+                description: ''
+            },
+            expenses: '',
+            totalIncome() { },
+            totalExpense() { },
+            accountInfo() { },
+            addIncome() { },
+            adddExpense() { },
+            accountBalance() { },
+        }
+        //Exercises3.2
+        let users2 = [
+            {
+                _id: 'ab12ex',
+                username: 'Alex',
+                email: 'alex@alex.com',
+                password: '123123',
+                createdAt: '08/01/2020 9:00 AM',
+                isLoggedIn: false
+            },
+            {
+                _id: 'fg12cy',
+                username: 'Asab',
+                email: 'asab@asab.com',
+                password: '123456',
+                createdAt: '08/01/2020 9:30 AM',
+                isLoggedIn: true
+            },
+            {
+                _id: 'zwf8md',
+                username: 'Brook',
+                email: 'brook@brook.com',
+                password: '123111',
+                createdAt: '08/01/2020 9:45 AM',
+                isLoggedIn: true
+            },
+            {
+                _id: 'eefamr',
+                username: 'Martha',
+                email: 'martha@martha.com',
+                password: '123222',
+                createdAt: '08/01/2020 9:50 AM',
+                isLoggedIn: false
+            },
+            {
+                _id: 'ghderc',
+                username: 'Thomas',
+                email: 'thomas@thomas.com',
+                password: '123333',
+                createdAt: '08/01/2020 10:00 AM',
+                isLoggedIn: false
+            }
+        ];
+
+        const products = [
+            {
+                _id: 'eedfcf',
+                name: 'mobile phone',
+                description: 'Huawei Honor',
+                price: 200,
+                ratings: [
+                    { userId: 'fg12cy', rate: 5 },
+                    { userId: 'zwf8md', rate: 4.5 }
+                ],
+                likes: []
+            },
+            {
+                _id: 'aegfal',
+                name: 'Laptop',
+                description: 'MacPro: System Darwin',
+                price: 2500,
+                ratings: [],
+                likes: ['fg12cy']
+            },
+            {
+                _id: 'hedfcg',
+                name: 'TV',
+                description: 'Smart TV:Procaster',
+                price: 400,
+                ratings: [{ userId: 'fg12cy', rate: 5 }],
+                likes: ['fg12cy']
+            }
+        ]
+
+        const userIdGenerated = () => {
+            let characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+            let id = '';
+            for (let i = 0; i < 6; i++) {
+                id += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            return id;
+        }
+
+
+        users2.signUp = (username, password) => {
+
+            for (user in users2) {
+                if (users2[user]['username'] == username) {
+                    console.log('Already exist account');
+                    return;
+                }
+            }
+            let id = userIdGenerated();
+            for (let i = 0; i < users2.length; i++) {
+                if (users2[i]['_id'] == id) {
+                    id = userIdGenerated();
+                    i = -1;
+                }
+            }
+            const time = new Date();
+            let date = time.getDate();
+            let month = time.getMonth();
+            let hour = time.getHours();
+            let minute = time.getMinutes();
+            let year = time.getFullYear();
+            if (date.toString().length == 1)
+                date = '0' + date;
+            if (month.toString().length == 1)
+                month = '0' + (month + 1);
+            if (hour.toString().length == 1)
+                hour = '0' + hour;
+            if (minute.toString().length == 1)
+                minute = '0' + minute;
+            let dayNight = '';
+            if (parseInt(hour) / 12 == 0)
+                dayNight = 'AM';
+            else
+                dayNight = 'PM';
+            let currentTime = month + '/' + date + '/' + year + ' ' + hour + ':' + minute + ' ' + dayNight;
+            const user1 = {
+                '_id': id,
+                'username': username,
+                'email': `${username.toLowerCase()}@gmail.com`,
+                'password': password,
+                'createdAt': currentTime,
+                'isLoggedIn': false,
+            };
+            users2.push(user1);
+        }
+        users2.signUp('ToanPhan', '124');
+        console.log(users2);
+        users2.signUp('ToanPhan', '123');
+        //Exercises3.3
+        users2.signIn = (username, password) => {
+            for (user in users2) {
+                if (users2[user]['username'] == username
+                    && users2[user]['password'] == password) {
+                    console.log('You are loggin');
+                    return;
+                }
+            }
+            console.log('Account not exist');
+        }
+
+        users2.signIn('ToanPhan', '124');
+
+        const rateProduct = (productId, userId, rate) => {
+            let object = products.filter(obj => {
+                return obj['_id'] === productId
+            })[0];
+            if (object) {
+                rating = {
+                    'userId': userId,
+                    'rate': rate,
+                }
+                object['ratings'].push(rating);
+                console.log('Rating successful');
+            }
+            else
+                console.log('Product not exist');
+        }
+        rateProduct('aegfal', 'fg12cy', 4);
+        console.log(products);
+        rateProduct('hedfcg', 'ab12ex', 4.5);
+        console.log(products);
+        rateProduct('hedfag', 'ab12ex', 4.5);
+        console.log(products);
+
+
+        const averageRating = () => {
+            let object = products.map(obj => {
+                return obj['ratings'];
+            });
+            let sum = 0;
+            let count = 0;
+            object.forEach(element => {
+                element.forEach(e => {
+                    sum += e['rate'];
+                    count++;
+                });
+            });
+            return sum / count;
+        }
+        console.log(averageRating());
+
+        //Exercises3.4
+        const likeProduct = (productId, userId) => {
+            let object = products.filter(obj => {
+                return obj['_id'] === productId
+            })[0];
+            for( const [index, element] of object['likes'].entries()) {
+                if(element == userId) {
+                    object['likes'].splice(index, 1);
+                    console.log('Unlike post');
+                    return object;
+                }
+            }
+            object['likes'].push(userId);
+            console.log('Like post');
+            return object;
+        }
+        console.log(likeProduct('hedfcg', 'fg12cy'));
+        console.log(likeProduct('hedfcg', 'fg12cy'));
+        console.log(likeProduct('hedfcg', 'fg14cy'));
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

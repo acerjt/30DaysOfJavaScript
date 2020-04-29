@@ -69,6 +69,656 @@
         //Ecercises1.15
         const findMax = (a, b, c) => (a > b && a > c) ? a : (b > a && b > c) ? b : c;
         console.log(findMax(0,-10,2));
+        //Ecercises2
+        //Ecercises2.1
+        const solveLinEquation = (a = 0, b = 0, c = 0, x = 0, y = 0) => {
+            x = 0;
+            if(b != 0)
+                y = -c / b;
+            console.log(`${a}x + ${b}y + ${c} = 0: x = 0, y = ${y}`);
+        }
+        solveLinEquation();
+        solveLinEquation(1,2,3);
+        //Ecercises2.2
+        const solveQuadratic = (a = 0, b = 0, c = 0, x = 0) => {
+            let delta = b ** 2 - 4 * a *c;
+            if(a == 0 && b == 0 && c ==0)
+                return 0;
+            if(delta < 0)
+                return undefined;
+            else if(delta == 0)
+                return -b / (2 * a);
+            else if(delta > 0) {
+                let x1 = (-b + Math.sqrt(delta) ) / (2 * a);
+                let x2 = (-b - Math.sqrt(delta) ) / (2 * a);
+                return[x1, x2];
+            }
+        }
+        console.log(solveQuadratic()) // {0}
+        console.log(solveQuadratic(1, 4, 4)) // {-2}
+        console.log(solveQuadratic(1, -1, -2)) // {2, -1}
+        console.log(solveQuadratic(1, 7, 12)) // {-3, -4}
+        console.log(solveQuadratic(1, 0, -4)) //{2, -2}
+        console.log(solveQuadratic(1, -1, 0)) //{1, 0}
+        //Ecercises2.3
+        const  printArray = (...array) => {
+            for(let i = 0; i < array.length; i ++)
+                console.log(array[i]);
+        }
+        printArray([1, 3, 6, 9, 8, 63]);
+        //Ecercises2.4
+        const showDateTime = () => {
+            const time = new Date();
+            let date = time.getDate();
+            let month = time.getMonth() + 1;
+            let year = time.getFullYear();
+            let hour = time.getHours();
+            let minute = time.getMinutes();
+            if(date.toString().length == 1)
+                date = '0' + date;
+            if(month.toString().length == 1)
+                month = '0' + month;
+            if(hour.toString().length == 1)
+                hour = '0' + hour;
+            if(minute.toString().length == 1)
+                minute = '0' + minute;
+
+            currenTime = month + '/' + date + '/' + year + ' ' + hour + ':' + minute;
+            console.log(currenTime);
+        }
+        showDateTime();
+        //Ecercises2.5
+        const swapValues = (x ,y) => {
+            x = x + y;
+            y = x - y;
+            x = x - y;
+            return [x, y];
+        }
+        let x = 3;
+        let y = 4;
+        [x,y] = swapValues(x, y);
+        console.log(x, y); // x => 4, y=>3
+        x = 4;
+        y = 5;
+        [x, y] = swapValues(x, y);
+        console.log(x, y); // x = 5, y = 4
+        //Ecercises2.6
+        const reverseArray = (array) => {
+            for(let i = 0; i < array.length / 2; i++) {
+                // let temp = array[i];
+                // array[i] = array[array.length - i - 1];
+                // array[array.length - i - 1] = temp;
+                [ array[i], array[array.length - i - 1]] = [ array[array.length - i - 1], array[i] ];
+            }
+            return array;
+        }
+        console.log(reverseArray([1, 2, 3, 4, 5]));
+        //[5, 4, 3, 2, 1]
+        console.log(reverseArray(['A', 'B', 'C']));
+        //['C', 'B', 'A']
+        //Ecercises2.7
+        String.prototype.capitalize = function (allWords) {
+            return (allWords) ? // if all words
+                this.split(' ').map(word => word.capitalize()).join(' ') : //break down phrase to words then  recursive calls until capitalizing all words
+                this.charAt(0).toUpperCase() + this.slice(1); // if allWords is undefined , capitalize only the first word , mean the first char of the whole string
+        }
+        const capitalizeArray = array => {
+            for(let i = 0; i <  array.length; i ++) {
+             array[i] = array[i].capitalize(true);
+            }
+        }
+        let strArray = ['asfa asfas asfa','agag', 'as ag agw ag'];
+        capitalizeArray(strArray);
+        console.log(strArray);
+        //Ecercises2.8
+        const addItem = item => {
+            let array = [];
+            array.push(item);
+            return array;
+        }
+        let itemArray = [];
+        itemArray = itemArray.concat(addItem(2));
+        itemArray = itemArray.concat(addItem(2));
+        itemArray = itemArray.concat(addItem(2));
+        itemArray = itemArray.concat(addItem(3));
+        itemArray = itemArray.concat(addItem(5));
+        console.log(itemArray);
+         //Ecercises2.9
+         const removeItem = index => {
+            itemArray.splice(index, 1);
+            return itemArray;
+        }
+        itemArray = removeItem(2);
+        itemArray = removeItem(1);
+        itemArray = removeItem(2);
+        console.log(itemArray);
+        //Ecercises2.10
+        const sumOfNumbers = number => {
+            let sum = 0;
+            for(let i = 0; i <= number; i++) {
+                sum += i;
+            }
+            return sum;
+        }
+        console.log(sumOfNumbers(100));
+        //Ecercises2.11
+        const sumOfOdds = number => {
+            let sum = 0;
+            for(let i = 1; i <= number; i+= 2) {
+                sum += i;
+            }
+            return sum;
+        }
+        console.log(sumOfOdds(100));
+        //Ecercises2.12
+        const sumOfEvens = number => {
+            let sum = 0;
+            for(let i = 0; i <= number; i+= 2) {
+                sum += i;
+            }
+            return sum;
+        }
+        console.log(sumOfEvens(100));
+        //Ecercises2.13
+        const evensAndOdds = number => {
+            let evenCount = 0;
+            let oddCount = 0;
+            for(let i = 0; i <= number; i++) {
+                if(i % 2 == 0) {
+                    evenCount++;
+                    continue;
+                }
+                oddCount++
+            }
+            console.log(`The number of odds are ${oddCount}.`);
+            console.log(`The number of evens are ${evenCount}.`);
+        }
+        evensAndOdds(100);
+        //Ecercises2.14
+        const sum = (...numbers) => {
+            let sum = 0;
+            for(let i = 0; i < numbers.length; i++) {
+                sum += numbers[i];
+            }
+            return sum;
+        }
+        console.log(sum(1, 2, 3));
+        console.log(sum(1, 2, 3, 4));
+        //Ecercises2.15
+        const randomUserIp = () => {
+            let ip = '';
+            for(let i = 0; i < 4; i++) {
+                ipNumRange = Math.floor(Math.random() * 256);
+                ip += ipNumRange + '.';
+            }
+            ip = ip.slice(0, ip.length - 2);
+            return ip;
+        }
+        console.log(randomUserIp());
+        //Ecercises2.16
+        const randomMacAddress = () => {
+            let macAddress = '';
+            for(let i = 0; i < 6; i++) {
+                macRange = Math.floor(Math.random() * 16);
+                macAddress += macRange.toString(16);
+                macRange = Math.floor(Math.random() * 16);
+                macAddress += macRange.toString(16) + ':';
+            }
+            macAddress = macAddress.slice(0, macAddress.length - 1);
+            return macAddress;
+        }
+        console.log(randomMacAddress());
+        //Ecercises2.17
+        const randomHexaNumberGenerator = () => {
+            let hexaString = '#';
+            for(let i = 0; i < 6; i++) {
+                hexaRange = Math.floor(Math.random() * 16);
+                hexaString += hexaRange.toString(16);
+            }
+            return hexaString;
+        }
+        console.log(randomHexaNumberGenerator());
+        //Ecercises2.18
+        const userIdGenerator = () => {
+            let id = '';
+            let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            for(let i =0; i < 7; i++) {
+                id += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            return id;
+        }
+        console.log(userIdGenerator());
+        //Ecercises3
+        //Ecercises3.1
+        let numOfChar = prompt('Number of characters: ');
+        let numOfGen = prompt('Number of ids generated: ');
+        const userIdGeneratedByUser = () => {
+            let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            for(let i = 0; i < numOfGen; i ++) {
+                let id = '';
+                for(let j = 0; j < numOfChar; j++) {
+                    id += characters.charAt(Math.floor(Math.random() * characters.length));
+                }
+                console.log(id);
+            }
+        }
+        userIdGeneratedByUser();
+        //Ecercises3.2
+        const rgbColorGenerator = () => {
+            let rgb = 'rgb(';
+            for(let i = 0; i < 3; i++) {
+                rgb += Math.floor(Math.random() * 256) + ',';
+            }
+            rgb = rgb.slice(0, rgb.length - 1) + ')';
+            console.log(rgb);
+        }
+        rgbColorGenerator();
+        //Ecercises3.3
+        const arrayOfHexaColors = number => {
+            let hexaColors = []
+            for(let i = 0; i < number; i++) {
+                hexaColors.push(randomHexaNumberGenerator());
+            }
+            return hexaColors;
+        }
+        console.log(arrayOfHexaColors(5));
+        //Ecercises3.4
+        const rgbColorGenerator1 = () => {
+            let rgb = 'rgb(';
+            for(let i = 0; i < 3; i++) {
+                rgb += Math.floor(Math.random() * 256) + ',';
+            }
+            rgb = rgb.slice(0, rgb.length - 1) + ')';
+            return rgb;
+        }
+        const arrayOfRgbColors = number => {
+            let rgbColors = []
+            for(let i = 0; i < number; i++) {
+                rgbColors.push(rgbColorGenerator1());
+            }
+            return rgbColors;
+        }
+        console.log(arrayOfRgbColors(5));
+        //Ecercises3.5
+        const convertHexaToRgb = hexaColor => {
+            let rgb = 'rgb('
+            hexaColor = hexaColor.slice(1,hexaColor.length);
+            for(let i = 0; i < 3; i++) {
+                let hexCode = '0x' + hexaColor.slice(i * 2, i * 2 + 2);
+                rgb += parseInt(hexCode) + ',';
+            }
+            rgb = rgb.slice(0, rgb.length - 1) + ')';
+            return rgb;
+        }
+        console.log(convertHexaToRgb('#ff00f0'));
+        //Ecercises3.6
+        const convertRgbToHexa = rgb => {
+            let hexa = '#'
+            rgb = rgb.replace('rgb(','');
+            rgb = rgb.replace(')','');
+            rgb = rgb.split(',');
+            for(let i = 0; i < rgb.length; i++) {
+                hexa += parseInt(rgb[i]).toString(16);
+            }
+            return hexa;
+        }
+        console.log(convertRgbToHexa('rgb(255,240,255)'));
+        //Ecercises3.7
+        const generateColors = (type, number) => {
+            if(type === 'hexa') {
+               return arrayOfHexaColors(number);
+            }
+            else if(type === 'rgb') {
+               return arrayOfRgbColors(number);
+            }
+        }
+        console.log(generateColors('hexa', 3)); // ['#a3e12f', '#03ed55', '#eb3d2b']
+        console.log(generateColors('hexa', 1)); // '#b334ef'
+        console.log(generateColors('rgb', 3)); // ['rgb(5, 55, 175)', 'rgb(50, 105, 100)', 'rgb(15, 26, 80)']
+        console.log(generateColors('rgb', 1)); // 'rgb(33,79, 176)
+        //Ecercises3.8
+        const shuffleArray = array => {
+            for (let i = array.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1)); // random index from 0 to i
+            [array[i], array[j]] = [array[j], array[i]];
+            return array;
+            }
+        }
+        let arr = [1, 3, 4, 5, 2];
+        console.log(shuffleArray(arr));
+        //Ecercises3.9
+        const factorial = number => {
+            if (number == 1)
+                return 1;
+            return factorial(number - 1) * number;
+        }
+        console.log(factorial(5));
+        //Ecercises3.10
+        const isEmpty = (parameter = '') => {
+            if(parameter.length == 0)
+                console.log('Empty');
+            else
+                console.log('Not empty');
+        }
+        isEmpty();
+        isEmpty(4);
+        //Ecercises3.11
+        const sum1 = (...number) => {
+            let sum = 0;
+            for(let i = 0; i < number.length; i++) {
+                sum += number[i];
+            }
+            return sum;
+        }
+        console.log(sum1(1, 2, 3, 5));
+        //Ecercises3.12
+        const sumOfArrayItems = array => {
+            let sum = 0;
+            for(let i = 0; i < array.length; i++) {
+                if(typeof array[i] == 'number') {
+                    sum += array[i];
+                }
+                else {
+                    console.log('The array has none number type');
+                    return;
+                }
+            }
+            return sum
+        }
+        console.log(sumOfArrayItems([1, 3, 5, 6]));
+        //Ecercises3.13
+        const average = array => {
+            let sum = 0;
+            for(let i = 0; i < array.length; i++) {
+                if(typeof array[i] == 'number') {
+                    sum += array[i];
+                }
+                else {
+                    console.log('The array has none number type');
+                    return;
+                }
+            }
+            return sum / array.length;
+        }
+        console.log(average([1, 3, 5, 6]));
+        //Ecercises3.14
+        const modifyArray = array => {
+            if(array.length >= 5) {
+                array[4] = array[4].toUpperCase();
+                return array
+            }
+            else
+                console.log('Not Found');
+        }
+
+        console.log(modifyArray(['Avocado', 'Tomato', 'Potato','Mango', 'Lemon','Carrot']));
+        console.log(modifyArray(['Google', 'Facebook','Apple', 'Amazon','Microsoft',  'IBM']));
+        console.log(modifyArray(['Google', 'Facebook','Apple', 'Amazon']));
+        //Ecercises3.15
+        const isPrime = number => {
+            if (number == 2)
+                return true;
+            if(number < 2)
+                return false;
+            if(number % 2 == 0)
+                return false;
+            for(let i = 3; i <= Math.sqrt(number); i++)
+                if(number % i == 0)
+                    return false;
+            return true;
+        }
+        console.log(isPrime(1));
+        console.log(isPrime(2));
+        console.log(isPrime(3));
+        console.log(isPrime(4));
+        console.log(isPrime(5));
+        console.log(isPrime(6));
+        console.log(isPrime(7));
+        console.log(isPrime(8));
+        console.log(isPrime(9));
+        console.log(isPrime(10));
+        //Ecercises3.16
+        const isUniqueArray = array => {
+            var counts = {};
+            for(let i = 0; i < array.length; i++) {
+                 counts[array[i]] = (counts[array[i]] || 0) + 1; 
+                 if(counts[array[i]] == 2)
+                    return false;
+            }
+            return true;
+        }
+        console.log('Is unique array: ',isUniqueArray([1, 2, 3, 4, 6]));
+        console.log('Is unique array: ',isUniqueArray([1, 2, 3, 4, 1]));
+        //Ecercises3.17
+        const isSameDataTpeArray = array => {
+            var counts = {};
+            for(let i = 0; i < array.length; i++) {
+                 counts[typeof array[i]] = typeof array[i]; 
+                 if(Object.keys(counts).length == 2)
+                    return false;
+            }
+            return true;
+        }
+        console.log('Is same data type array: ',isSameDataTpeArray([1, 2, 3, 4, 6]));
+        console.log('Is same data type array: ',isSameDataTpeArray([1, 2, 'ad', 4, 1]));
+        //Ecercises3.19
+        const sevenRandomNumbers = () => {
+            let arr = [];
+            for(let i = 0; i < 7; i++) {
+                let number = parseInt(Math.random() * 10);
+                arr.push(number);
+                while(arr.slice(0, arr.length - 1).includes(number)) {
+                    number = parseInt(Math.random() * 10);
+                }
+                arr.pop();
+                arr.push(number);
+            }
+            return arr;
+        }
+        console.log(sevenRandomNumbers());
+        //Ecercises3.20
+        const countries = [
+            'Afghanistan',
+            'Albania',
+            'Algeria',
+            'Andorra',
+            'Angola',
+            'Antigua and Barbuda',
+            'Argentina',
+            'Armenia',
+            'Australia',
+            'Austria',
+            'Azerbaijan',
+            'Bahamas',
+            'Bahrain',
+            'Bangladesh',
+            'Barbados',
+            'Belarus',
+            'Belgium',
+            'Belize',
+            'Benin',
+            'Bhutan',
+            'Bolivia',
+            'Bosnia and Herzegovina',
+            'Botswana',
+            'Brazil',
+            'Brunei',
+            'Bulgaria',
+            'Burkina Faso',
+            'Burundi',
+            'Cambodia',
+            'Cameroon',
+            'Canada',
+            'Cape Verde',
+            'Central African Republic',
+            'Chad',
+            'Chile',
+            'China',
+            'Colombi',
+            'Comoros',
+            'Congo (Brazzaville)',
+            'Congo',
+            'Costa Rica',
+            "Cote d'Ivoire",
+            'Croatia',
+            'Cuba',
+            'Cyprus',
+            'Czech Republic',
+            'Denmark',
+            'Djibouti',
+            'Dominica',
+            'Dominican Republic',
+            'East Timor (Timor Timur)',
+            'Ecuador',
+            'Egypt',
+            'El Salvador',
+            'Equatorial Guinea',
+            'Eritrea',
+            'Estonia',
+            'Ethiopia',
+            'Fiji',
+            'Finland',
+            'France',
+            'Gabon',
+            'Gambia, The',
+            'Georgia',
+            'Germany',
+            'Ghana',
+            'Greece',
+            'Grenada',
+            'Guatemala',
+            'Guinea',
+            'Guinea-Bissau',
+            'Guyana',
+            'Haiti',
+            'Honduras',
+            'Hungary',
+            'Iceland',
+            'India',
+            'Indonesia',
+            'Iran',
+            'Iraq',
+            'Ireland',
+            'Israel',
+            'Italy',
+            'Jamaica',
+            'Japan',
+            'Jordan',
+            'Kazakhstan',
+            'Kenya',
+            'Kiribati',
+            'Korea, North',
+            'Korea, South',
+            'Kuwait',
+            'Kyrgyzstan',
+            'Laos',
+            'Latvia',
+            'Lebanon',
+            'Lesotho',
+            'Liberia',
+            'Libya',
+            'Liechtenstein',
+            'Lithuania',
+            'Luxembourg',
+            'Macedonia',
+            'Madagascar',
+            'Malawi',
+            'Malaysia',
+            'Maldives',
+            'Mali',
+            'Malta',
+            'Marshall Islands',
+            'Mauritania',
+            'Mauritius',
+            'Mexico',
+            'Micronesia',
+            'Moldova',
+            'Monaco',
+            'Mongolia',
+            'Morocco',
+            'Mozambique',
+            'Myanmar',
+            'Namibia',
+            'Nauru',
+            'Nepal',
+            'Netherlands',
+            'New Zealand',
+            'Nicaragua',
+            'Niger',
+            'Nigeria',
+            'Norway',
+            'Oman',
+            'Pakistan',
+            'Palau',
+            'Panama',
+            'Papua New Guinea',
+            'Paraguay',
+            'Peru',
+            'Philippines',
+            'Poland',
+            'Portugal',
+            'Qatar',
+            'Romania',
+            'Russia',
+            'Rwanda',
+            'Saint Kitts and Nevis',
+            'Saint Lucia',
+            'Saint Vincent',
+            'Samoa',
+            'San Marino',
+            'Sao Tome and Principe',
+            'Saudi Arabia',
+            'Senegal',
+            'Serbia and Montenegro',
+            'Seychelles',
+            'Sierra Leone',
+            'Singapore',
+            'Slovakia',
+            'Slovenia',
+            'Solomon Islands',
+            'Somalia',
+            'South Africa',
+            'Spain',
+            'Sri Lanka',
+            'Sudan',
+            'Suriname',
+            'Swaziland',
+            'Sweden',
+            'Switzerland',
+            'Syria',
+            'Taiwan',
+            'Tajikistan',
+            'Tanzania',
+            'Thailand',
+            'Togo',
+            'Tonga',
+            'Trinidad and Tobago',
+            'Tunisia',
+            'Turkey',
+            'Turkmenistan',
+            'Tuvalu',
+            'Uganda',
+            'Ukraine',
+            'United Arab Emirates',
+            'United Kingdom',
+            'United States',
+            'Uruguay',
+            'Uzbekistan',
+            'Vanuatu',
+            'Vatican City',
+            'Venezuela',
+            'Vietnam',
+            'Yemen',
+            'Zambia',
+            'Zimbabwe'
+        ];
+        const reverseCountries = countries => {
+            const cloneContries = [...countries];
+            cloneContries.reverse();
+            return cloneContries;
+        }
+        console.log(reverseCountries(countries));
+        console.log(countries);
     </script>
 </head>
 
