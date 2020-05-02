@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src='countries.js'></script>
+    <script>
+        //Exercises1
+        //Exercises1.3
+        const countries = ['Finland', 'Sweden', 'Denmark', 'Norway', 'IceLand']
+        const names = ['Asabeneh', 'Mathias', 'Elias', 'Brook']
+        const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        const products = [
+            { product: 'banana', price: 3 },
+            { product: 'mango', price: 6 },
+            { product: 'potato', price: ' ' },
+            { product: 'avocado', price: 8 },
+            { product: 'coffee', price: 10 },
+            { product: 'tea', price: '' }
+        ]
+
+        countries.forEach(countrie => console.log(countrie));
+        //Exercises1.4
+        names.forEach(name => console.log(name));
+        //Exercises1.5
+        numbers.forEach(number => console.log(number));
+        //Exercises1.6
+        const uppercaseCountries = countries.map(countrie => countrie.toUpperCase());
+        console.log(uppercaseCountries);
+        //Exercises1.7
+        const lengthCountries = countries.map(countrie => countrie.length);
+        console.log(lengthCountries);
+        //Exercises1.8
+        const squareNumbers = numbers.map(number => number ** 2);
+        console.log(squareNumbers);
+        //Exercises1.9
+        const uppercaseNames = names.map(name => name.toUpperCase());
+        console.log(uppercaseNames);
+        //Exercises1.10
+        const productPrices = products.map(product => product.price);
+        console.log(productPrices);
+        //Exercises1.11
+        const landCountries = countries.filter(countrie => countrie.includes('land'));
+        console.log(landCountries);
+        //Exercises1.12
+        const sixCharactersCountries = countries.filter(countrie => countrie.length == 6);
+        console.log(sixCharactersCountries);
+        //Exercises1.13
+        const moreThanSixCharactersCountries = countries.filter(countrie => countrie.length >= 6);
+        console.log(moreThanSixCharactersCountries);
+        //Exercises1.14
+        const countriesStartByE = countries.filter(countrie => countrie.startsWith('E'));
+        console.log(countriesStartByE);
+        //Exercises1.15
+        const productPricesWithValue = products.filter(product => parseInt(product.price) > 0);
+        console.log(productPricesWithValue);
+        //Exercises1.16
+        const getStringLists = array => {
+            const stringList = array.filter(element => typeof element === 'string');
+            return stringList;
+        }
+        console.log(getStringLists([1, 2, 'abc', 3, '3dg']));
+        //Exercises1.17
+        const sum = array => array.reduce((accum, curr) => accum + curr);
+        console.log(sum([1, 2, 3, 4, 5]));
+        //Exercises1.18
+        const concatCountries = array => {
+            let str = array.slice(0, array.length - 1).reduce((accum, curr) => accum + ', ' + curr);
+            str = str + ' and ' + array[array.length - 1] + ' are north European countries';
+            return str
+        }
+        console.log(concatCountries(countries));
+        //Exercises1.19
+        //Exercises1.20
+
+        const someNameLengthGreaterThanSeven = names.some(name => name.length > 7);
+        console.log(someNameLengthGreaterThanSeven);
+        //Exercises1.21
+        const isCountriesContainLand = countries.every(countrie => countrie.includes('land'));
+        console.log(isCountriesContainLand);
+        //Exercises1.23
+        const firstCountrieContainSixChar = countries.find(countrie => countrie.length == 6);
+        console.log(firstCountrieContainSixChar);
+        //Exercises1.24
+        const firstIndexCountrieContainSixChar = countries.findIndex(countrie => countrie.length == 6);
+        console.log(firstIndexCountrieContainSixChar);
+        //Exercises1.25
+        const findNorwayPos = countries.findIndex(countrie => countrie === 'Norway');
+        console.log(findNorwayPos);
+        //Exercises1.26
+        const findRussiaPos = countries.findIndex(countrie => countrie === 'Russia');
+        console.log(findRussiaPos);
+        //Exercises2
+        //Exercises2.1
+        const totalProductsPrice = products.map(product => product.price).filter(product => parseInt(product) > 0).reduce((a, b) => a + b);
+        console.log(totalProductsPrice);
+        //Exercises2.2
+        console.log(products);
+        const priceSum = products.reduce((a, b) => {
+            if (parseInt(a.price) > 0 && parseInt(b.price) > 0)
+                a.price = parseInt(a.price) + parseInt(b.price);
+            return a;
+        });
+        console.log(priceSum.price);
+        //Exercises2.3
+        const categorizeCountries = array => {
+            let arr = [];
+            arr['land'] = array.filter(countrie => countrie.name.includes('land'));
+            arr['ia'] = array.filter(countrie => countrie.name.includes('ia'));
+            arr['island'] = array.filter(countrie => countrie.name.includes('Island'));
+            arr['stan'] = array.filter(countrie => countrie.name.includes('stan'));
+            return arr;
+        }
+        console.log(categorizeCountries(countries1));
+        //Exercises2.4
+        let characters = 'abcdefghijklmnopqrstuvwxyz'.toUpperCase();
+        characters = characters.split('');
+        const x = characters.map(element => {
+            let countrieStartByLetter = countries1.filter(countrie => {
+                return countrie.name.startsWith(element);
+            });
+            let letter = element;
+            element = {
+                'name': letter,
+                'time': countrieStartByLetter.length,
+            }
+
+            return element;
+        });
+        console.log(x);
+        //Exercises2.5
+        const getFirstTenCountrie = countries1.slice(0, 10).map(countrie => countrie);
+        console.log(getFirstTenCountrie);
+        //Exercises2.6
+        const getLastTenCountries = countries1.slice(countries1.length - 10, countries1.length).map(countrie => countrie);
+        console.log(getLastTenCountries);
+        //Exercises2.7
+        const findMostInitCountryByLetter = x.reduce((a, b) => {
+            if (a.time > b.time)
+                return a;
+            return b;
+        })
+        console.log(findMostInitCountryByLetter);
+        //Exercises3
+        //Exercises3.1
+        const sortCountryByName = countries1.sort((a, b) => {
+            if (a.name < b.name) return -1;
+            if (a.name > b.name) return 1;
+            return 0;
+        });
+        const sortCountryByCapital = countries1.sort((a, b) => {
+            if (a.capital < b.capital) return -1;
+            if (a.capital > b.capital) return 1;
+            return 0;
+        });
+        const sortCountryByPopulation = countries1.sort((a, b) => {
+            if (a.population < b.population) return -1;
+            if (a.population > b.population) return 1;
+            return 0;
+        });
+        console.log(sortCountryByName);
+        console.log(sortCountryByCapital);
+        console.log(sortCountryByPopulation);
+        //Exercises3.2
+        const mostSpokenLanguages = (countries1, number) => {
+            const x = countries1.map(element => {
+                return element.languages;
+            });
+            var counts = [];
+            for (let i = 0; i < x.length; i++) {
+                for (let j = 0; j < x[i].length; j++)
+                    counts[x[i][j]] = (counts[x[i][j]] || 0) + 1;
+            }
+            k = [];
+            for (const i in counts) {
+                k.push([counts[i], i]);
+            }
+            k.sort((a, b) => b[0] - a[0]);
+            k = k.slice(0, number);
+            return k;
+        }
+        console.log(mostSpokenLanguages(countries1, 10));
+        console.log(mostSpokenLanguages(countries1, 3));
+        //Exercises3.3
+        const mostPopulatedCountries = (countrie, number) => {
+            countrie.sort((a, b) => b.population - a.population);
+            countrie = countrie.slice(0, number);
+            return countrie;
+        }
+        console.log(mostPopulatedCountries(countries1, 10));
+        console.log(mostPopulatedCountries(countries1, 3));
+        //Exercises3.4
+        const ages = [31, 26, 34, 37, 27, 26, 32, 32, 26, 27, 27, 24, 32, 33, 27, 25, 26, 38, 37, 31, 34, 24, 33, 29, 26]
+        let statistics = {
+            count() {
+                return ages.length;
+            },
+            sum() {
+                return ages.reduce((a, b) => a + b);
+            },
+            min() {
+                ages.sort((a, b) => a - b);
+                return ages[0];
+            },
+            max() {
+                ages.sort((a, b) => a - b);
+                return ages[ages.length - 1];
+            },
+            range() {
+                return this.max() - this.min();
+            },
+            mean() {
+                return Math.ceil(this.sum() / ages.length);
+            },
+            median() {
+                ages.sort((a, b) => a - b);
+                if (ages.length % 2 == 0)
+                    return (ages[Math.floor(ages.length / 2)] + ages[Math.floor(ages.length / 2) - 1]) / 2;
+                return ages[Math.floor(ages.length / 2)];
+            },
+            mode() {
+                ages.sort((a, b) => a - b);
+                let counts = [];
+                for (let i = 0; i < ages.length; i++) {
+                    counts[ages[i]] = (counts[ages[i]] || 0) + 1;
+                }
+                const count = counts.reduce((a, b) => a > b ? a : b);
+                const mode = counts.findIndex((element, index, array) => element == count);
+                return { mode, count };
+            },
+            var() {
+                let variance = 0;
+                let x1 = this.mean();
+                ages.forEach(x => {
+                    variance += (x - x1) ** 2;
+                });
+                variance /= ages.length;
+                return variance;
+            },
+            std() {
+                let std = 0;
+                let mean = this.mean();
+                ages.forEach(x => {
+                    std += (x - mean) ** 2;
+                })
+                std = Math.sqrt(std / ages.length);
+                return std;
+            },
+            freqDist() {
+                let counts = [];
+                for (let i = 0; i < ages.length; i++) {
+                    counts[ages[i]] = (counts[ages[i]] || 0) + 1;
+                }
+                const fd = counts.map(element => element / ages.length * 100);
+                return fd;
+            },
+            describe() {
+                console.log('Count:', statistics.count()); // 25
+                console.log('Sum: ', statistics.sum()); // 744
+                console.log('Min: ', statistics.min()); // 24
+                console.log('Max: ', statistics.max());// 38
+                console.log('Range: ', statistics.range()); // 14
+                console.log('Mean: ', statistics.mean()); // 30
+                console.log('Median: ', statistics.median()); // 29
+                console.log('Mode: ', statistics.mode()); // {'mode': 26, 'count': 5}
+                console.log('Variance: ', statistics.var()); // 17.5
+                console.log('Standard Deviation: ', statistics.std()); // 4.2
+                console.log('Variance: ', statistics.var()); // 17.5
+                console.log('Frequency Distribution: ', statistics.freqDist()); //[(20.0, 26), (16.0, 27), (12.0, 32), (8.0, 37), (8.0, 34), (8.0, 33), (8.0, 31), (8.0, 24), (4.0, 38), (4.0, 29), (4.0, 25)]
+            }
+
+        }
+
+        console.log(statistics.describe());
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
