@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../day9/countries.js"></script>
+    <script>
+        //Exercises1
+        //Exercises1.1
+        const emptySet = new Set();
+        console.log(emptySet);
+        //Exercises1.2
+        const zeroToTenArray = () => {
+            let array = [];
+            for (let i = 0; i < 11; i++)
+                array.push(i);
+            return array;
+        }
+        const zeroToTenSet = new Set();
+        for (let i = 0; i < 11; i++)
+            zeroToTenSet.add(i);
+        // const zeroToTenSet = new Set(Array.from(Array(11).keys()));
+        // const zeroToTenSet = new Set(zeroToTenArray());
+        console.log(zeroToTenSet);
+        //Exercises1.3
+        const zeroToTenSetClone = new Set(zeroToTenSet);
+        zeroToTenSetClone.delete(zeroToTenSetClone.size - 1);
+        console.log(zeroToTenSetClone);
+        //Exercises1.4
+        const zeroToTenSetAfterClear = new Set(zeroToTenSet);
+        zeroToTenSetAfterClear.clear();
+        console.log(zeroToTenSetAfterClear);
+        //Exercises1.5
+        const strArray = ['Toan', 'Dung', 'Viet', 'Then', 'Tung'];
+        const fiveStringSet = new Set(strArray);
+        console.log(fiveStringSet);
+        //Exercises1.6
+        const countries = ['Finland', 'Sweden', 'Norway'];
+        const mapCountrieLength = new Map();
+        for (const countrie of countries) {
+            mapCountrieLength.set(countrie, countrie.length);
+        }
+        console.log(mapCountrieLength);
+        //Exercises2
+        //Exercises2.1
+        const a = [4, 5, 8, 9];
+        const b = [3, 4, 5, 7];
+
+        const aUnionB = new Set(a.concat(b));
+        console.log(aUnionB);
+        //Exercises2.2
+        const aIntersectionB = new Set(a.filter(element => b.includes(element)));
+        console.log(aIntersectionB);
+        //Exercises2.3
+        const aWithB = new Set(a.filter(element => !b.includes(element)));
+        console.log(aWithB);
+        //Exercises3
+        //Exercises3.1
+        const languageSet = new Set();
+        for (const countrie of countries1) {
+            countrie.languages.forEach(element => {
+                languageSet.add(element);
+            });
+        }
+        console.log(languageSet.size);
+        //Exercises3.2
+        const mostSpokenLanguages = (countries, number) => {
+            const spokenLanguageCountrie = new Map()
+            countries.forEach(countrie => {
+                countrie.languages.forEach(language => {
+                    if (spokenLanguageCountrie.has(language))
+                        spokenLanguageCountrie.set(language, spokenLanguageCountrie.get(language) + 1);
+                    else
+                        spokenLanguageCountrie.set(language, 1);
+
+                });
+            });
+
+            const spokenLanguageCountrieSort = new Map([...spokenLanguageCountrie.entries()].sort((a, b) => b[1] - a[1]));
+            let spokenLanguageCountrieFirstNElement = Array.from(spokenLanguageCountrieSort, ([name, value]) => ({ name, value }));
+            spokenLanguageCountrieFirstNElement =  spokenLanguageCountrieFirstNElement.slice(0, number);
+            return spokenLanguageCountrieFirstNElement;
+        }
+        console.log(mostSpokenLanguages(countries1, 10));
+        console.log(mostSpokenLanguages(countries1, 3));
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
