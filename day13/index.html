@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../day9/countries.js"></script>
+    <script>
+        //Exercises1
+        //Exercises1.1
+        const countries = [
+            ['Finland', 'Helsinki'],
+            ['Sweden', 'Stockholm'],
+            ['Norway', 'Oslo']
+        ];
+        console.table(countries);
+        //Exercises1.2
+        console.table(countries1);
+        //Exercises1.3
+        console.group('Countries');
+        console.log(countries);
+        console.groupEnd();
+        //Exercises2
+        //Exercises2.1
+        console.assert(10 > 2 * 10, `10 is not greater than ${2 * 10}`);
+        //Exercises2.2
+        console.warn('This is the warn meassage');
+        //Exercises2.3
+        console.error('This is the error message');
+        //Exercises3
+        //Exercises3.1
+        console.time('Regular for loop');
+        for (let i = 0; i < countries; i++)
+            console.log(countries[i][0], countries[i][1])
+        console.timeEnd('Regular for loop');
+
+        console.time('For of loop');
+        for (const [countrie, city] of countries)
+            console.log(countrie, city);
+        console.timeEnd('For of loop');
+
+        console.time('Foreach loop');
+        countries.forEach(([countrie, city]) => { console.log(countrie, city) });
+        console.timeEnd('Foreach loop');
+
+        console.time('While loop');
+        let cLength = 0;
+        while (cLength != countries.length) {
+            console.log(countries[cLength][0],countries[cLength][1]);
+            cLength++;
+        }
+
+        console.timeEnd('While loop');
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
