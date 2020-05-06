@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //Exercises
+        //ErrorType
+        //ReferenceError
+        try {
+            let lastName = 'Toan'
+            let fullName = fistName + ' ' + lastName
+        } catch (err) {
+            console.log(err)
+        }
+        //SyntaxError
+        try {
+            eval('var 1Name;');
+        }
+        catch (err) {
+            console.log(err);
+        }
+        //TypeError
+        try {
+            let number = 10;
+            console.log(number.toLowerCase());
+        }
+        catch (err) {
+            console.log(err);
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
