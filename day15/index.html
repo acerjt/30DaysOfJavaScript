@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //Execises1
+        //Execises1.1
+        class Animal {
+            constructor(name, age, color, legs) {
+                this.name = name;
+                this.age = age;
+                this.color = color;
+                this.legs = legs;
+            }
+
+            info() {
+                return `The animal name is ${this.name}. It is ${this.age} years old. It is ${this.color} and has ${this.legs} legs`
+            }
+        }
+        const animal = new Animal('Su', 2, 'White', 4);
+        console.log(animal);
+        console.log(animal.info());
+        //Execises1.2
+        //Exercises2
+        //Exercises2.1
+        class Dog extends Animal {
+            info() {
+                return `The dog name is ${this.name}. It is ${this.age} years old. It is ${this.color} and has ${this.legs} legs`
+            }
+        }
+        class Cat extends Animal {
+            info() {
+                return `The cat name is ${this.name}. It is ${this.age} years old. It is ${this.color} and has ${this.legs} legs`
+            }
+        }
+        const dog = new Dog('Den', 2, 'Black', 4);
+        console.log(dog);
+        console.log(dog.info());
+        const cat = new Cat('Cam', 2, 'Orange', 4);
+        console.log(cat);
+        console.log(cat.info());
+        //Exercises3
+        //Exercises3.1
+        ages = [31, 26, 34, 37, 27, 26, 32, 32, 26, 27, 27, 24, 32, 33, 27, 25, 26, 38, 37, 31, 34, 24, 33, 29, 26];
+        class statistics {
+            static count() {
+                return ages.length;
+            }
+            static sum() {
+                return ages.reduce((a, b) => a + b);
+            }
+            static min() {
+                ages.sort((a, b) => a - b);
+                return ages[0];
+            }
+            static max() {
+                ages.sort((a, b) => a - b);
+                return ages[ages.length - 1];
+            }
+            static range() {
+                return this.max() - this.min();
+            }
+            static mean() {
+                return Math.ceil(this.sum() / ages.length);
+            }
+            static median() {
+                ages.sort((a, b) => a - b);
+                if (ages.length % 2 == 0)
+                    return (ages[Math.floor(ages.length / 2)] + ages[Math.floor(ages.length / 2) - 1]) / 2;
+                return ages[Math.floor(ages.length / 2)];
+            }
+            static mode() {
+                ages.sort((a, b) => a - b);
+                let counts = [];
+                for (let i = 0; i < ages.length; i++) {
+                    counts[ages[i]] = (counts[ages[i]] || 0) + 1;
+                }
+                const count = counts.reduce((a, b) => a > b ? a : b);
+                const mode = counts.findIndex((element, index, array) => element == count);
+                return { mode, count };
+            }
+            static var() {
+                let variance = 0;
+                let x1 = this.mean();
+                ages.forEach(x => {
+                    variance += (x - x1) ** 2;
+                });
+                variance /= ages.length;
+                return variance;
+            }
+            static std() {
+                let std = 0;
+                let mean = this.mean();
+                ages.forEach(x => {
+                    std += (x - mean) ** 2;
+                })
+                std = Math.sqrt(std / ages.length);
+                return std;
+            }
+            static freqDist() {
+                let counts = [];
+                for (let i = 0; i < ages.length; i++) {
+                    counts[ages[i]] = (counts[ages[i]] || 0) + 1;
+                }
+                const fd = counts.map(element => element / ages.length * 100);
+                return fd;
+            }
+            static describe() {
+                console.log('Count:', statistics.count()); // 25
+                console.log('Sum: ', statistics.sum()); // 744
+                console.log('Min: ', statistics.min()); // 24
+                console.log('Max: ', statistics.max());// 38
+                console.log('Range: ', statistics.range()); // 14
+                console.log('Mean: ', statistics.mean()); // 30
+                console.log('Median: ', statistics.median()); // 29
+                console.log('Mode: ', statistics.mode()); // {'mode': 26, 'count': 5}
+                console.log('Variance: ', statistics.var()); // 17.5
+                console.log('Standard Deviation: ', statistics.std()); // 4.2
+                console.log('Variance: ', statistics.var()); // 17.5
+                console.log('Frequency Distribution: ', statistics.freqDist()); //[(20.0, 26), (16.0, 27), (12.0, 32), (8.0, 37), (8.0, 34), (8.0, 33), (8.0, 31), (8.0, 24), (4.0, 38), (4.0, 29), (4.0, 25)]
+            }
+
+        }
+        console.log('Count:', statistics.count()); // 25
+        console.log('Sum: ', statistics.sum()); // 744
+        console.log('Min: ', statistics.min()); // 24
+        console.log('Max: ', statistics.max()); // 38
+        console.log('Range: ', statistics.range()); // 14
+        console.log('Mean: ', statistics.mean()); // 30
+        console.log('Median: ', statistics.median()); // 29
+        console.log('Mode: ', statistics.mode()); // {'mode':    26,    'count': 5}
+        console.log('Variance: ', statistics.var()); // 17.5
+        console.log('Standard Deviation: ', statistics.std()); //    4.2
+        console.log('Variance: ', statistics.var()); // 17.5
+        console.log('Frequency Distribution: ', statistics.freqDist());   // [(20.0, 26), (16.0, 27), (12.0, 32), (8.0, 37),  (8.0, 34), (8.0, 33), (8.0, 31), (8.0, 24), (4.0, 38), (4.0, 29), (4.0, 25)]
+        //Execises3.2
+        class PersonAccount {
+            constructor(firstName, lastName, incomes, expenses) {
+                this.firstName = firstName;
+                this.lastName = lastName;
+                this.incomes = incomes;
+                this.expenses = expenses;
+            }
+            totalIncome() {
+                const income = this.incomes.reduce((a, b) => {
+                    let c = {...a};
+                    c['income'] = a['income'] + b['income'];
+                    return c;
+                });
+                income['description'] = 'total';
+                return income;
+            }
+            totalExpense() {
+                const expense = this.expenses.reduce((a, b) => {
+                    let c = {...a};
+                    c['expense'] = a['expense'] + b['expense'];
+                    return c;
+                });
+                expense['description'] = 'total';
+                return expense;
+            }
+            accountInfo() {
+                let accountName = `${this.firstName} ${this.lastName}`;
+                let totalIncome = this.incomes[0]['income'];
+                let totalExpense = this.expenses[0]['expense'];
+            }
+            addIncome(income) {
+                this.incomes.push(income)
+            }
+            addExpense(expense) {
+                this.expenses.push(expense)
+            }
+            accountBalance() {
+                return `Balance: ${Number(this.totalIncome()['income']) - Number(this.totalExpense()['expense'])}`;
+            }
+        }
+        let personAccount = new PersonAccount(
+            'Toan',
+            'Phan',
+            [
+                { 'income': 10, 'description': 'A' },
+                { 'income': 5, 'description': 'B' },
+                { 'income': 3, 'description': 'C' },
+                { 'income': 12, 'description': 'D' },
+            ],
+            [
+                { 'expense': 3, 'description': 'A' },
+                { 'expense': 2, 'description': 'B' },
+                { 'expense': 1, 'description': 'C' },
+                { 'expense': 8, 'description': 'D' },
+            ]
+        );
+        console.log(personAccount.totalIncome());
+        console.log(personAccount.totalExpense());
+        personAccount.addIncome({ 'income': 20, 'description': 'E' });
+        personAccount.addExpense({ 'expense': 6, 'description': 'E' });
+        console.log(personAccount.expenses);
+        console.log(personAccount.incomes);
+        console.log(personAccount.totalIncome());
+        console.log(personAccount.totalExpense());
+        console.log(personAccount.accountBalance());
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
