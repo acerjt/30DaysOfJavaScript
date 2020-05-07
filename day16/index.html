@@ -133,29 +133,16 @@
         const txtObject = JSON.parse(txt, undefined, 4);
         console.log(txtObject);
         //Exercises3.2
-        // // const usersHasMostSkills = JSON.parse(txt, (key, value) => {
-        // //    if(key === 'skills' && key.length == 8){
-        // //        return key;
-        // //    }
-        // //     // console.log(key, value);
-        // //     // console.log(key);
-        // // });
-        // txtObject.fo
-        // console.log(usersHasMostSkills);
         var maxProp = null
         var maxValue = -1
         for (var prop in txtObject) {
-            for (var prop1 in txtObject[prop]) {
-                if (prop1 == 'skills') {
-                    var value = txtObject[prop][prop1].length;
-                    if (value > maxValue) {
-                        maxProp = prop;
-                        maxValue = value;
-                    }
-                }
+            var value = txtObject[prop]['skills'].length;
+            if (value > maxValue) {
+                maxProp = prop;
+                maxValue = value;
             }
-        }
-        console.log(maxProp);
+        }   
+        console.log(maxProp, txtObject[maxProp]);
     </script>
 </head>
 

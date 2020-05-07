@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //Exercises1
+        //Exercises1.1
+        localStorage.setItem("firstName", "Toan");
+        localStorage.setItem("lastName", "Phan");
+        localStorage.setItem("age", "22");
+        localStorage.setItem("country", "VietNam");
+        localStorage.setItem("city", "BinhThuan");
+        console.log(localStorage);
+        //Exercises2
+        //Exercises2.1
+        const student = {
+            firstName: "Toan",
+            lastName: "Phan",
+            age: 22,
+            skills: ["HTML", "CSS", "JS", "JQuery", "Java", "C#", "VB", "C++", "PHP"],
+            country: "VietNam",
+        }
+        localStorage.setItem("student", JSON.stringify(student));
+        //Exercises3
+        //Exercises3.1
+        const personAccount = {
+            firstName : '',
+            lastName : '',
+            incomes : {
+                income : [],
+                description: '',
+            },
+            expenses : {
+                expense : [],
+                description: '',
+            },
+            totalIncome() {
+                const income = this.incomes.reduce((a, b) => {
+                    let c = { ...a };
+                    c['income'] = a['income'] + b['income'];
+                    return c;
+                });
+                income['description'] = 'total';
+                return income;
+            },
+            totalExpense() {
+                const expense = this.expenses.reduce((a, b) => {
+                    let c = { ...a };
+                    c['expense'] = a['expense'] + b['expense'];
+                    return c;
+                });
+                expense['description'] = 'total';
+                return expense;
+            },
+            accountInfo() {
+                let accountName = `${this.firstName} ${this.lastName}`;
+                let totalIncome = this.incomes[0]['income'];
+                let totalExpense = this.expenses[0]['expense'];
+            },
+            addIncome(income) {
+                this.incomes.push(income)
+            },
+            addExpense(expense) {
+                this.expenses.push(expense)
+            },
+            accountBalance() {
+                return `Balance: ${Number(this.totalIncome()['income']) - Number(this.totalExpense()['expense'])}`;
+            },
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
