@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //Exercises1
+        //Exercises1.1
+        function outerFunction() {
+            let count = 0;
+            function innerFunction() {
+                count++;
+                return count;
+            }
+            return innerFunction;
+        }
+        const innerFunc = outerFunction();
+        console.log(innerFunc());
+        console.log(innerFunc());
+        console.log(innerFunc());
+        //Exercises2
+        //Exercises2.1
+        function outerFunction1() {
+            let count = 0;
+            function plusOne() {
+                count++;
+                return count;
+            }
+            function minusOne() {
+                count--;
+                return count;
+            }
+            function square() {
+                count = 4 ** 2;
+                return count;
+            }
+            return {
+                plusOne: plusOne(),
+                minusOne: minusOne(),
+                square: square(),
+
+            }
+        }
+        const innerFuncs = outerFunction1()
+
+        console.log(innerFuncs.plusOne);
+        console.log(innerFuncs.minusOne);
+        console.log(innerFuncs.square);
+        //Exercises3
+        //Exercises3.1
+        function outerFunction2() {
+            let firstName = 'This is first name';
+            let lastName = 'This is last name';
+            let incomes = {
+                incomes: [],
+                description: '',
+            };
+            let expenses = {
+                expenses: [],
+                description: '',
+            };
+            function totalIncome() {
+                firstName = "toan";
+                return 'This is total income function';
+            }
+            function totalExpense() {
+                return 'This is total expense function';
+            }
+            function accountInfo() {
+                return 'This is account info function';
+            }
+            function addIncome() {
+                return 'This is add income function';
+            }
+            function addExpense() {
+                return 'This is add expense function';
+            }
+            function accountBalance() {
+                return 'This is account balance function';
+            }
+            return {
+                firstName: firstName,
+                lastName: lastName,
+                incomes: incomes,
+                expenses: expenses,
+                totalIncome: totalIncome(),
+                totalExpense: totalExpense(),
+                accountInfo: accountInfo(),
+                addIncome: addIncome(),
+                addExpense: addExpense(),
+                accountBalance: accountBalance(),
+            }
+        }
+        const personAccount = outerFunction2();
+        console.log(personAccount.firstName);
+        console.log(personAccount.lastName);
+        console.log(personAccount.incomes);
+        console.log(personAccount.expenses);
+        console.log(personAccount.totalIncome);
+        console.log(personAccount.totalExpense);
+        console.log(personAccount.accountInfo);
+        console.log(personAccount.addIncome);
+        console.log(personAccount.addExpense);
+        console.log(personAccount.accountBalance);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
