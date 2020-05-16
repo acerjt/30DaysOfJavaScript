@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="p1">This is paragraph 1</p>
+    <p id="p2">This is paragraph 2</p>
+    <p id="p3">This is paragraph 3</p>
+    <p id="p4">This is paragraph 4</p>
+    <script>
+        //Exercises1.1
+        const firstParagraph = document.querySelector('p');
+        console.log(firstParagraph);
+        //Exercises1.2
+        const firstParagraphSelectByID = document.querySelector('#p1');
+        const secondParagraphSelectByID = document.querySelector('#p2');
+        const thirdParagraphSelectByID = document.querySelector('#p3');
+        const fouthParagraphSelectByID = document.querySelector('#p4');
+        console.log(firstParagraphSelectByID);
+        console.log(secondParagraphSelectByID);
+        console.log(thirdParagraphSelectByID);
+        console.log(fouthParagraphSelectByID);
+        //Exercises1.3
+        const allPTag = document.querySelectorAll('p');
+        console.log(allPTag);
+        //Exercises1.4
+        allPTag.forEach(
+            node => console.log(node.innerHTML)
+        );
+        //Exercises1.5
+        const fourthParagraph = allPTag[3].innerHTML = 'Fourth Paragraph';
+        console.log(fourthParagraph);
+        //Exercises1.6
+        allPTag.forEach(p => {
+            p.setAttribute('class', 'redText')
+            console.log(p);
+        });
+        //Exercises2
+        //Exercises2.1
+        allPTag[0].style.color = 'red';
+        allPTag[0].style.backgroundColor = 'yellow';
+        allPTag[0].style.border = '5px solid black';
+        allPTag[0].style.fontSize = '20px';
+        allPTag[0].style.fontFamily = 'mono';
+
+        allPTag[1].style.color = 'blue';
+        allPTag[1].style.backgroundColor = 'green';
+        allPTag[1].style.border = '2px solid orange';
+        allPTag[1].style.fontSize = '16px'
+        allPTag[1].style.fontFamily = 'san-serif';
+
+        allPTag[2].style.color = 'teal';
+        allPTag[2].style.backgroundColor = 'blue';
+        allPTag[2].style.border = '3px solid purple ';
+        allPTag[2].style.fontSize = '44px';
+        allPTag[2].style.fontFamily = 'Arial';
+        //Exercises2.2
+        const cloneAllPTag = [...allPTag];
+        for (let i = 0; i < cloneAllPTag.length; i++) {
+            if (i % 2 == 0)
+                cloneAllPTag[i].style.color = 'green';
+            else
+                cloneAllPTag[i].style.color = 'red';
+        }
+        //Exercises3
+
+
+    </script>
+</body>
+
+</html>
